@@ -1,4 +1,4 @@
-package com.example.ecommerce;
+package com.example.ecommerce.controller;
 
 import org.springframework.stereotype.Controller;
 
