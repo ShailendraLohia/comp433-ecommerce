@@ -7,17 +7,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
-@Entity
-@Table(name = "UserInfo")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@Entity
+@Table(name="partner_details")
+public class PartnerInfo {
     @Id
-    private String userId;
-    private String userName;
-    private String DOB;
-    private boolean primeMember;
+    private String partnerId;
+    private String partnerName;
+
 }

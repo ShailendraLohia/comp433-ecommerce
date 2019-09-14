@@ -9,15 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Entity
-@Table(name = "UserInfo")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@Entity
+@Table(name="shipping_details")
+public class ShippingDetails {
     @Id
+    private String trackingNumber;
     private String userId;
-    private String userName;
-    private String DOB;
-    private boolean primeMember;
+    private String order_id;
+    private Date shippingDate;
+    private Date arrivalDate;
+    private String shippingStatus;
+    private String shippedBy;
+
 }

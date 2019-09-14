@@ -29,12 +29,18 @@
         <property name="annotatedClasses">
             <list>
                 <!--<value>com.apache.cxf.spring.hibernate.model.Player</value>-->
+                <value>com.example.ecommerce.model.User</value>
+                <!--<value>com.example.ecommerce.model.Item</value>-->
+                <!--<value>com.example.ecommerce.model.Order</value>-->
+                <!--<value>com.example.ecommerce.model.CardInfo</value>-->
+                <!--<value>com.example.ecommerce.model.OrderCancel</value>-->
+                <!--<value>com.example.ecommerce.model.PartnerInfo</value>-->
             </list>
         </property>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
                 <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
@@ -43,10 +49,13 @@
     <!-- dataSource configuration -->
     <bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <!--<bean id="dataSource"-->
+          <!--class="org.apache.commons.dbcp.BasicDataSource">-->
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/benchresources" />
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/benchresources" />-->
+        <property name="url" value="jdbc:mysql://localhost:3306/MyDB" />
         <property name="username" value="root" />
-        <property name="password" value="" />
+        <property name="password" value="root" />
     </bean>
 </beans>
 

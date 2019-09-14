@@ -9,15 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Entity
-@Table(name = "UserInfo")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+@Entity
+@Table(name="card_info")
+public class CardInfo {
     @Id
+    private String cardNumber;
+    @Id
+    private String cardType; // Debit, Credit
+    private String cardCategory; // Visa, mastercard
+    private Date ExpirationDate;
     private String userId;
-    private String userName;
-    private String DOB;
-    private boolean primeMember;
 }

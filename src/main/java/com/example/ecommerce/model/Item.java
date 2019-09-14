@@ -1,0 +1,26 @@
+package com.example.ecommerce.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="ItemInfo")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Item {
+    @Id
+    private String item_id;
+    private String item_category;
+    private double item_price;
+    private int item_quantity_available;
+    private String item_name;
+    private String item_description;
+    private String item_sold_by;
+    private double item_review;
+}
