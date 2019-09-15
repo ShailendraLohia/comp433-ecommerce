@@ -11,18 +11,18 @@ import javax.persistence.Table;
 import java.util.Date;
 import java.util.Set;
 
+@Entity
+@Table(name="order_details")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name="cancel_order")
-public class OrderCancel {
+public class Cart {
     @Id
-    private String cancelOrderId;
     private String cartId;
-    private String reasonForReturn;
-    private double totalRefundMoney;
-    private Date cancelOrderDate;
-    @OneToMany(mappedBy = "orderCancel")
-    private Set<ReturnItems> returnItems;
+    private String user_id;
+    private String orderStatus;  //enum can be used
+    private Date purchaseDate;
+    //private CardInfo paymentInfo; // could be use for request object
+    @OneToMany(mappedBy = "cart")
+    private Set<Items> items;
 }

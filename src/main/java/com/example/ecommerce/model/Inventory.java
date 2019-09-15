@@ -9,11 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ItemInfo")
+@Table(name="Inventory_Info")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Item {
+public class Inventory {
     @Id
     private String item_id;
     private String item_category;

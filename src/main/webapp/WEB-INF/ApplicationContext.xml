@@ -30,11 +30,15 @@
             <list>
                 <!--<value>com.apache.cxf.spring.hibernate.model.Player</value>-->
                 <value>com.example.ecommerce.model.User</value>
-                <!--<value>com.example.ecommerce.model.Item</value>-->
-                <!--<value>com.example.ecommerce.model.Order</value>-->
-                <!--<value>com.example.ecommerce.model.CardInfo</value>-->
-                <!--<value>com.example.ecommerce.model.OrderCancel</value>-->
-                <!--<value>com.example.ecommerce.model.PartnerInfo</value>-->
+                <value>com.example.ecommerce.model.Inventory</value>
+                <value>com.example.ecommerce.model.Cart</value>
+                <value>com.example.ecommerce.model.CardInfo</value>
+                <value>com.example.ecommerce.model.OrderCancel</value>
+                <value>com.example.ecommerce.model.PartnerInfo</value>
+                <value>com.example.ecommerce.model.Items</value>
+                <value>com.example.ecommerce.model.ReturnItems</value>
+                <value>com.example.ecommerce.model.Address</value>
+                <value>com.example.ecommerce.model.ShippingDetails</value>
             </list>
         </property>
         <property name="hibernateProperties">

@@ -21,7 +21,7 @@ public class ShippingDetails {
     private String order_id;
     private Date shippingDate;
     private Date arrivalDate;
-    private String shippingStatus;
-    private String shippedBy;
+    private String shippingStatus; // enum can be used
+    private String shippedBy; // USPS, UPS, Fedex
 
 }

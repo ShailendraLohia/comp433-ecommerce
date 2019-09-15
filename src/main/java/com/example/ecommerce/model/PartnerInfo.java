@@ -17,5 +17,5 @@ public class PartnerInfo {
     @Id
     private String partnerId;
     private String partnerName;
-
+    //private Address address;
 }
