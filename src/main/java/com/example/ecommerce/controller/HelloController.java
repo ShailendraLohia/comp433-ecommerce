@@ -1,5 +1,7 @@
 package com.example.ecommerce.controller;
 
+import com.example.ecommerce.service.RegisterCustomerImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -12,14 +14,17 @@ import javax.ws.rs.Path;
 
 public class HelloController {
 
-    @GET
-//    public String sayHello() {
-//        return "Hello";
-//    }
+    @Autowired
+    private RegisterCustomerImpl registerCustomer;
 
-    public ResponseEntity<String> sayHelloDear() {
-        return new ResponseEntity<>("Hello", HttpStatus.OK);
+    @GET
+    public String sayHello() {
+        return registerCustomer.registerCustomer();
     }
+
+//    public ResponseEntity<String> sayHelloDear() {
+//        return new ResponseEntity<>("Hello", HttpStatus.OK);
+//    }
 
 
 

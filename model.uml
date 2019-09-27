@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.example.ecommerce.model</OriginalElement>
+  <nodes>
+    <node x="517.375" y="145.0">com.example.ecommerce.model.OrderCancel</node>
+    <node x="110.625" y="677.0">com.example.ecommerce.model.Address</node>
+    <node x="0.0" y="905.0">com.example.ecommerce.model.PartnerInfo</node>
+    <node x="336.375" y="44.0">com.example.ecommerce.model.Items</node>
+    <node x="125.375" y="0.0">com.example.ecommerce.model.ShippingDetails</node>
+    <node x="76.125" y="444.0">com.example.ecommerce.model.User</node>
+    <node x="532.875" y="0.0">com.example.ecommerce.model.ReturnItems</node>
+    <node x="196.0" y="233.0">com.example.ecommerce.model.Cart</node>
+    <node x="0.0" y="244.0">com.example.ecommerce.model.CardInfo</node>
+    <node x="799.375" y="0.0">com.example.ecommerce.model.Inventory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.example.ecommerce.model.ReturnItems" target="com.example.ecommerce.model.OrderCancel">
+      <point x="51.5" y="47.5" />
+      <point x="687.375" y="120.0" />
+      <point x="695.125" y="120.0" />
+      <point x="59.25" y="-80.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.User" target="com.example.ecommerce.model.Cart">
+      <point x="29.875" y="-91.5" />
+      <point x="225.5" y="419.0" />
+      <point x="257.25" y="419.0" />
+      <point x="-61.25" y="80.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.Cart" target="com.example.ecommerce.model.ShippingDetails">
+      <point x="-91.875" y="-80.5" />
+      <point x="226.625" y="208.0" />
+      <point x="173.125" y="208.0" />
+      <point x="-47.75" y="91.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.ShippingDetails" target="com.example.ecommerce.model.Cart">
+      <point x="47.75" y="91.5" />
+      <point x="268.625" y="208.0" />
+      <point x="287.875" y="208.0" />
+      <point x="-30.625" y="-80.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.Cart" target="com.example.ecommerce.model.Items">
+      <point x="30.625" y="-80.5" />
+      <point x="349.125" y="208.0" />
+      <point x="370.375" y="208.0" />
+      <point x="-34.0" y="47.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.User" target="com.example.ecommerce.model.CardInfo">
+      <point x="-89.625" y="-91.5" />
+      <point x="106.0" y="419.0" />
+      <point x="44.0" y="419.0" />
+      <point x="-44.0" y="69.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.OrderCancel" target="com.example.ecommerce.model.ReturnItems">
+      <point x="-59.25" y="-80.5" />
+      <point x="576.625" y="120.0" />
+      <point x="584.375" y="120.0" />
+      <point x="-51.5" y="47.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.Address" target="com.example.ecommerce.model.User">
+      <point x="-42.5" y="-91.5" />
+      <point x="153.125" y="652.0" />
+      <point x="135.875" y="652.0" />
+      <point x="-59.75" y="91.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.User" target="com.example.ecommerce.model.Address">
+      <point x="59.75" y="91.5" />
+      <point x="255.375" y="652.0" />
+      <point x="238.125" y="652.0" />
+      <point x="42.5" y="-91.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.Cart" target="com.example.ecommerce.model.User">
+      <point x="61.25" y="80.5" />
+      <point x="379.75" y="419.0" />
+      <point x="285.25" y="419.0" />
+      <point x="89.625" y="-91.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.CardInfo" target="com.example.ecommerce.model.User">
+      <point x="44.0" y="69.5" />
+      <point x="132.0" y="419.0" />
+      <point x="165.75" y="419.0" />
+      <point x="-29.875" y="-91.5" />
+    </edge>
+    <edge source="com.example.ecommerce.model.Items" target="com.example.ecommerce.model.Cart">
+      <point x="34.0" y="47.5" />
+      <point x="438.375" y="208.0" />
+      <point x="410.375" y="208.0" />
+      <point x="91.875" y="-80.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="572.0" y="304.85714285714283" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
