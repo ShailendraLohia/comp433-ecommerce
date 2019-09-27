@@ -32,4 +32,5 @@ public class User {
 //            @AttributeOverride( name = "zipCode", column = @Column(name = "zipCode"))
 //    })
     private List<Address> addresses;
+
 }
