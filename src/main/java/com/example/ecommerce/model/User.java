@@ -20,6 +20,8 @@ public class User {
     private String userName;
     private Date DOB;
     private boolean primeMember;
+    @OneToOne(mappedBy = "user")
+    private Cart cart;
     @OneToMany(mappedBy = "userId")
     private Set<CardInfo> paymentDetails;
     @OneToMany(mappedBy = "userId")
