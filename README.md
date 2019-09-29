@@ -1,9 +1,7 @@
 # comp433-ecommerce
-This project used both Apache cxf and Spring.
+<b>This project used both Apache cxf and Spring.</b>
 
-#UML - Class Diagram
-
-Please look for UML-screen-shot.png
+# UML - Class Diagram
 
 ![](UML-screen-shot.png)
 
@@ -11,7 +9,7 @@ Please look for UML-screen-shot.png
 
 ![](ListOfTables.png)
 
-#Configuration details\
+# Configuration details
 
 1. CXF configuration are at /webapp/WEB_INF/apache-cxf-services.xml
 2. Spring configuration is at /webapp/WEB_INF/ApplicationContext.xml
