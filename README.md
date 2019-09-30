@@ -9,6 +9,7 @@
 <p>Partner: id, name</p>
 <p>Inventory: items</p>
 <p>Additionally, we have added classes to cover the scenario of an item being returned or an order being canceled.</p>
+
 ![](UML-screen-shot.png)
 
 # Tables
