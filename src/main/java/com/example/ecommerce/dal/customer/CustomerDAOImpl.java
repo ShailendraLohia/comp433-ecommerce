@@ -13,15 +13,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Repository
+@Transactional
 public class DAOImpl {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public String findCustomer() {
-        return "customer found!";
+    public User findCustomer(User user) {
+
+        String userId=user.getUserId();
+        Session session=sessionFactory.getCurrentSession();
+        user=(User)session.get(User.class,userId);
+
+        return user;
     }
 
-    @Transactional
+
     public String addCustomer(User user) {
 
         Set<CardInfo> cardData=new HashSet<>();
