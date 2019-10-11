@@ -1,22 +1,52 @@
 package com.example.ecommerce.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name="items")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Items {
+
     @Id
+    @GeneratedValue
+    private Long id;
     private String item_id;
     private int quantity;
-//    private boolean returnItem;
     @ManyToOne
-    @JoinColumn(name="cartId", nullable = false)
+    @JoinColumn(name="cart_id", nullable = false)
     private Cart cart;
+
+    public Items() {
+
+    }
+
+    public String getItem_id() {
+        return item_id;
+    }
+
+    public void setItem_id(String item_id) {
+        this.item_id = item_id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

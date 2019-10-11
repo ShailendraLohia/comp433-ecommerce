@@ -30,4 +30,35 @@
             <ref bean="jaxbXmlProvider" />
         </jaxrs:providers>
     </jaxrs:server>
+
+    <jaxrs:server id="userContainer" address="/userdata">
+        <jaxrs:serviceBeans>
+            <ref bean="userService" />
+        </jaxrs:serviceBeans>
+
+        <jaxrs:extensionMappings>
+            <entry key="json" value="application/json" /> <!-- use .json to get data in JSON format -->
+            <entry key="xml" value="application/xml" />   <!-- use .xml to get data in XML format -->
+        </jaxrs:extensionMappings>
+
+        <jaxrs:providers>
+            <ref bean="jsonProvider" />
+            <ref bean="jaxbXmlProvider" />
+        </jaxrs:providers>
+    </jaxrs:server>
+    <jaxrs:server id="orderContainer" address="/order">
+        <jaxrs:serviceBeans>
+            <ref bean="orderService" />
+        </jaxrs:serviceBeans>
+
+        <jaxrs:extensionMappings>
+            <entry key="json" value="application/json" /> <!-- use .json to get data in JSON format -->
+            <entry key="xml" value="application/xml" />   <!-- use .xml to get data in XML format -->
+        </jaxrs:extensionMappings>
+
+        <jaxrs:providers>
+            <ref bean="jsonProvider" />
+            <ref bean="jaxbXmlProvider" />
+        </jaxrs:providers>
+    </jaxrs:server>
 </beans>

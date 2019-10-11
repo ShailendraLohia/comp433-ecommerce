@@ -1,9 +1,7 @@
 package com.example.ecommerce.controller;
 
-import com.example.ecommerce.service.RegisterCustomerImpl;
+import com.example.ecommerce.service.customer.RegisterCustomerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import javax.ws.rs.GET;
@@ -19,7 +17,7 @@ public class HelloController {
 
     @GET
     public String sayHello() {
-        return registerCustomer.registerCustomer();
+        return "say Hello!";
     }
 
 //    public ResponseEntity<String> sayHelloDear() {

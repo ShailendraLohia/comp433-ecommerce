@@ -1,29 +1,21 @@
 package com.example.ecommerce.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "UserInfo")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "customer_info")
 public class User {
     @Id
     private String userId;
     private String userName;
-    private Date DOB;
+    private Date dateOfBirth;
     private boolean primeMember;
-    @OneToOne(mappedBy = "user")
-    private Cart cart;
-    @OneToMany(mappedBy = "userId")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private Set<CardInfo> paymentDetails;
+
     @OneToMany(mappedBy = "userId")
 //    @Embedded
 //    @AttributeOverrides({
@@ -35,4 +27,55 @@ public class User {
 //    })
     private List<Address> addresses;
 
+    public User() {
+
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public boolean isPrimeMember() {
+        return primeMember;
+    }
+
+    public void setPrimeMember(boolean primeMember) {
+        this.primeMember = primeMember;
+    }
+
+    public Set<CardInfo> getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    public void setPaymentDetails(Set<CardInfo> paymentDetails) {
+        this.paymentDetails = paymentDetails;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
+    }
 }
