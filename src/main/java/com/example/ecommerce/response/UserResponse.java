@@ -1,6 +1,5 @@
 package com.example.ecommerce.response;
 
-import com.example.ecommerce.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

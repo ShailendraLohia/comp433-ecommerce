@@ -29,16 +29,16 @@
         <property name="annotatedClasses">
             <list>
                 <!--<value>com.apache.cxf.spring.hibernate.model.Player</value>-->
-                <value>com.example.ecommerce.model.User</value>
-                <value>com.example.ecommerce.model.Inventory</value>
-                <value>com.example.ecommerce.model.Cart</value>
-                <value>com.example.ecommerce.model.CardInfo</value>
-                <value>com.example.ecommerce.model.OrderCancel</value>
-                <value>com.example.ecommerce.model.PartnerInfo</value>
-                <value>com.example.ecommerce.model.Items</value>
-                <value>com.example.ecommerce.model.ReturnItems</value>
-                <value>com.example.ecommerce.model.Address</value>
-                <value>com.example.ecommerce.model.ShippingDetails</value>
+                <value>com.example.ecommerce.model.customer.User</value>
+                <value>com.example.ecommerce.model.product.Inventory</value>
+                <value>com.example.ecommerce.model.order.Cart</value>
+                <value>com.example.ecommerce.model.payment.CardInfo</value>
+                <value>com.example.ecommerce.model.cancel.order.OrderCancel</value>
+                <value>com.example.ecommerce.model.partner.PartnerInfo</value>
+                <value>com.example.ecommerce.model.order.SoldProduct</value>
+                <value>com.example.ecommerce.model.cancel.order.ReturnItems</value>
+                <value>com.example.ecommerce.model.customer.Address</value>
+                <value>com.example.ecommerce.model.shipping.ShippingDetails</value>
             </list>
         </property>
         <property name="hibernateProperties">

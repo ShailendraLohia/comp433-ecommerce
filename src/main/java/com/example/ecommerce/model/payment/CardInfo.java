@@ -1,4 +1,6 @@
-package com.example.ecommerce.model;
+package com.example.ecommerce.model.payment;
+
+import com.example.ecommerce.model.customer.User;
 
 import javax.persistence.*;
 import java.io.Serializable;

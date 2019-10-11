@@ -1,8 +1,7 @@
-package com.example.ecommerce.dao.order;
+package com.example.ecommerce.dal.order;
 
-import com.example.ecommerce.model.Cart;
-import com.example.ecommerce.model.Items;
-import com.example.ecommerce.model.User;
+import com.example.ecommerce.model.order.Cart;
+import com.example.ecommerce.model.order.SoldProduct;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +19,13 @@ public class OrderDAOImpl {
 
     @Transactional
     public String saveOrders(Cart cart) {
-        List<Items> itemData=new ArrayList<>();
+        List<SoldProduct> itemData=new ArrayList<>();
 
         String cartId=String.valueOf(Instant.now().toEpochMilli());
         cart.setCartId(cartId);
 
         if(cart.getItems().size()>0) {
-            for(Items items:cart.getItems()) {
+            for(SoldProduct items:cart.getItems()) {
                 items.setCart(cart);
                 itemData.add(items);
             }

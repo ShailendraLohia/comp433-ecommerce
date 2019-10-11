@@ -1,10 +1,12 @@
-package com.example.ecommerce.model;
+package com.example.ecommerce.model.order;
+
+import com.example.ecommerce.model.order.Cart;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="items")
-public class Items {
+@Table(name="product_sold")
+public class SoldProduct {
 
     @Id
     @GeneratedValue
@@ -15,7 +17,7 @@ public class Items {
     @JoinColumn(name="cart_id", nullable = false)
     private Cart cart;
 
-    public Items() {
+    public SoldProduct() {
 
     }
 

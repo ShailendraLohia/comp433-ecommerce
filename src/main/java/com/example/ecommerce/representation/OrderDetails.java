@@ -1,7 +1,7 @@
-package com.example.ecommerce.request;
+package com.example.ecommerce.representation;
 
-import com.example.ecommerce.model.CardInfo;
-import com.example.ecommerce.model.Cart;
+import com.example.ecommerce.model.payment.CardInfo;
+import com.example.ecommerce.model.order.Cart;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

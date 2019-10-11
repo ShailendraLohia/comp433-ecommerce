@@ -1,4 +1,6 @@
-package com.example.ecommerce.model;
+package com.example.ecommerce.model.customer;
+
+import com.example.ecommerce.model.payment.CardInfo;
 
 import javax.persistence.*;
 import java.util.Date;

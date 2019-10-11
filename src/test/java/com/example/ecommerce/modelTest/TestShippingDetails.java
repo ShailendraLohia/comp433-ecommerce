@@ -1,8 +1,8 @@
 package com.example.ecommerce.modelTest;
 
 import static org.junit.Assert.*;
-import com.example.ecommerce.model.*;
 
+import com.example.ecommerce.model.shipping.ShippingDetails;
 import org.junit.Before;
 import org.junit.Test;
 

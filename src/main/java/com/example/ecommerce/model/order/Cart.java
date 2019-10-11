@@ -1,4 +1,7 @@
-package com.example.ecommerce.model;
+package com.example.ecommerce.model.order;
+
+import com.example.ecommerce.model.shipping.ShippingDetails;
+import com.example.ecommerce.model.customer.User;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,7 +21,7 @@ public class Cart {
     private User user;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.PERSIST)
-    private List<Items> items;
+    private List<SoldProduct> items;
 
     @OneToOne
     @JoinColumn(name="trackingNumber", nullable = true)
@@ -60,11 +63,11 @@ public class Cart {
         this.purchaseDate = purchaseDate;
     }
 
-    public List<Items> getItems() {
+    public List<SoldProduct> getItems() {
         return items;
     }
 
-    public void setItems(List<Items> items) {
+    public void setItems(List<SoldProduct> items) {
         this.items = items;
     }
 

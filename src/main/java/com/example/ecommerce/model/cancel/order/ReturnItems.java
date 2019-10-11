@@ -1,5 +1,6 @@
-package com.example.ecommerce.model;
+package com.example.ecommerce.model.cancel.order;
 
+import com.example.ecommerce.model.cancel.order.OrderCancel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

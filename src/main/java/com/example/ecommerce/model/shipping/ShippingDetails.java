@@ -1,8 +1,6 @@
-package com.example.ecommerce.model;
+package com.example.ecommerce.model.shipping;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.example.ecommerce.model.order.Cart;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

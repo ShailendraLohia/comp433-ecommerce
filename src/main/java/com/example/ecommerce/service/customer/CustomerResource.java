@@ -1,8 +1,7 @@
 package com.example.ecommerce.service.customer;
 
-import com.example.ecommerce.request.UserData;
+import com.example.ecommerce.representation.UserDetails;
 import com.example.ecommerce.response.UserResponse;
-import com.example.ecommerce.service.customer.RegisterCustomerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
@@ -24,7 +23,7 @@ public class CustomerResource {
 
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
-    public ResponseEntity<UserResponse> addUsers(@RequestBody UserData userData) {
+    public ResponseEntity<UserResponse> addUsers(@RequestBody UserDetails userData) {
         String response = registerCustomer.registerCustomer(userData.getUserData());
         UserResponse userResponse = new UserResponse();
         userResponse.setUserId(response);

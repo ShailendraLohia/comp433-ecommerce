@@ -1,4 +1,4 @@
-package com.example.ecommerce.model;
+package com.example.ecommerce.model.partner;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

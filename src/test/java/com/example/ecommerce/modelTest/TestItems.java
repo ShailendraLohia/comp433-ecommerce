@@ -1,18 +1,18 @@
 package com.example.ecommerce.modelTest;
 
 import static org.junit.Assert.*;
-import com.example.ecommerce.model.*;
 
+import com.example.ecommerce.model.order.SoldProduct;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestItems {
 
-	Items items;
+	SoldProduct items;
 	
 	@Before
 	public void setUp() {
-		items = new Items();
+		items = new SoldProduct();
 	}
 	
 	@Test

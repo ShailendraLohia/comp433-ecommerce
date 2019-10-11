@@ -1,7 +1,7 @@
-package com.example.ecommerce.dao.customer;
+package com.example.ecommerce.dal.customer;
 
-import com.example.ecommerce.model.CardInfo;
-import com.example.ecommerce.model.User;
+import com.example.ecommerce.model.payment.CardInfo;
+import com.example.ecommerce.model.customer.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

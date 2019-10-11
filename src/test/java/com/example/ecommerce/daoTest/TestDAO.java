@@ -1,7 +1,7 @@
 package com.example.ecommerce.daoTest;
 
 import static org.junit.Assert.*;
-import com.example.ecommerce.dao.customer.DAOImpl;
+import com.example.ecommerce.dal.customer.DAOImpl;
 
 import org.junit.Before;
 import org.junit.Test;
