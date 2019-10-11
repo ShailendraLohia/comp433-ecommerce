@@ -1,6 +1,9 @@
 package com.example.ecommerce.service.order;
 
+import com.example.ecommerce.dal.customer.CustomerDAOImpl;
 import com.example.ecommerce.dal.order.OrderDAOImpl;
+import com.example.ecommerce.exceptions.UserNotFoundException;
+import com.example.ecommerce.model.customer.User;
 import com.example.ecommerce.model.order.SoldProduct;
 import com.example.ecommerce.representation.request.order.OrderDetails;
 import com.example.ecommerce.representation.response.ItemsDetail;
@@ -13,11 +16,18 @@ import java.util.List;
 public class OrderServiceImpl {
     @Autowired
     private OrderDAOImpl orderDAO;
+    @Autowired
+    private CustomerDAOImpl customerDAO;
 
-    public String addNewOrder(OrderDetails orderDetails) {
-        orderDAO.saveOrders(orderDetails.getOrderDetails());
+    public String addNewOrder(OrderDetails orderDetails) throws Exception{
+        User user=orderDetails.getOrderDetails().getUser();
+        user=customerDAO.findCustomer(user);
 
-        return "cart added";
+        if(user==null) { // User not registered. Don't accept order.
+            throw new UserNotFoundException("User not registered,Please get added into system");
+            //https://www.journaldev.com/2651/spring-mvc-exception-handling-controlleradvice-exceptionhandler-handlerexceptionresolver
+        }
+        return orderDAO.saveOrders(orderDetails.getOrderDetails());
 
     }
 

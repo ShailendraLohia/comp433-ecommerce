@@ -21,7 +21,7 @@ public class OrderResource {
     private OrderServiceImpl orderService;
 
     @POST
-    public ResponseEntity<String> placeNewOrder(@RequestBody OrderDetails orderDetails) {
+    public ResponseEntity<String> placeNewOrder(@RequestBody OrderDetails orderDetails) throws Exception{
         String response=orderService.addNewOrder(orderDetails);
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);

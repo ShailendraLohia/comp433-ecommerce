@@ -14,7 +14,7 @@ import java.util.Set;
 
 @Repository
 @Transactional
-public class DAOImpl {
+public class CustomerDAOImpl {
     @Autowired
     private SessionFactory sessionFactory;
 
