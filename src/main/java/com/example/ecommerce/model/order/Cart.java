@@ -19,7 +19,7 @@ public class Cart {
     @JoinColumn(name="user_id",nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.PERSIST,fetch=FetchType.EAGER)
     private List<SoldProduct> items;
 
 //    @OneToOne

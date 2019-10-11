@@ -1,5 +1,8 @@
 package com.example.ecommerce.model.order;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,11 +11,13 @@ public class SoldProduct {
 
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id;
     private String item_id;
     private int quantity;
     @ManyToOne
     @JoinColumn(name="cart_id", nullable = false)
+    @JsonIgnore
     private Cart cart;
 
     public SoldProduct() {
