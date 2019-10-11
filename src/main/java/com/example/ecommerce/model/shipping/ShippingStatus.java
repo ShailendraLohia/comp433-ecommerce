@@ -2,31 +2,27 @@ package com.example.ecommerce.model.shipping;
 
 import com.example.ecommerce.model.order.Cart;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
+
 @Entity
-@Table(name="shipping_details")
-public class ShippingDetails {
+@Table(name="shipping_status")
+public class ShippingStatus {
     @Id
     private String trackingNumber;
     private String userId;
 
-    //private String order_id;
-    @OneToOne(mappedBy = "shippingDetails")
+    @OneToOne/*(mappedBy = "shippingDetails")*/
+    @JoinColumn(name="cart_id",nullable = false)
     private Cart cart;
+
     private Date shippingDate;
     private Date arrivalDate;
     private String shippingStatus; // enum can be used
     private String shippedBy; // USPS, UPS, Fedex
 
-    public ShippingDetails() {
+    public ShippingStatus() {
 
     }
 

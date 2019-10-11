@@ -2,17 +2,17 @@ package com.example.ecommerce.modelTest;
 
 import static org.junit.Assert.*;
 
-import com.example.ecommerce.model.shipping.ShippingDetails;
+import com.example.ecommerce.model.shipping.ShippingStatus;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestShippingDetails {
 
-	ShippingDetails shippingDetails;
+	ShippingStatus shippingDetails;
 	
 	@Before
 	public void setUp() {
-		shippingDetails = new ShippingDetails();
+		shippingDetails = new ShippingStatus();
 	}
 	
 	@Test

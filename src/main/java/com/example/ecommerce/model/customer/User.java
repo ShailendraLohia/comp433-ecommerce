@@ -15,10 +15,13 @@ public class User {
     private String userName;
     private Date dateOfBirth;
     private boolean primeMember;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private Set<CardInfo> paymentDetails;
 
     @OneToMany(mappedBy = "userId")
+    private List<Address> addresses;
+
 //    @Embedded
 //    @AttributeOverrides({
 //            @AttributeOverride( name = "streetDetails", column = @Column(name = "streetDetails")),
@@ -27,7 +30,8 @@ public class User {
 //            @AttributeOverride( name = "state", column = @Column(name = "state")),
 //            @AttributeOverride( name = "zipCode", column = @Column(name = "zipCode"))
 //    })
-    private List<Address> addresses;
+
+
 
     public User() {
 

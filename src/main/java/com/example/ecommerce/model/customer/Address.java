@@ -1,16 +1,7 @@
 package com.example.ecommerce.model.customer;
 
-import com.example.ecommerce.model.customer.User;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 //@Embeddable
 @Table(name="address_details")
@@ -25,4 +16,62 @@ public class Address {
     @ManyToOne
     @JoinColumn(name = "userId",nullable = false)
     private User userId;
+
+    public Address() {}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getStreetDetails() {
+        return streetDetails;
+    }
+
+    public void setStreetDetails(String streetDetails) {
+        this.streetDetails = streetDetails;
+    }
+
+    public String getApt_number() {
+        return apt_number;
+    }
+
+    public void setApt_number(String apt_number) {
+        this.apt_number = apt_number;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(int zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
+    }
 }

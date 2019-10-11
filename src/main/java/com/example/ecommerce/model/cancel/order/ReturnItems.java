@@ -1,15 +1,7 @@
 package com.example.ecommerce.model.cancel.order;
 
-import com.example.ecommerce.model.cancel.order.OrderCancel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name="return_items")
 public class ReturnItems {
@@ -19,4 +11,30 @@ public class ReturnItems {
     @ManyToOne
     @JoinColumn(name="cancelOrderId", nullable = false)
     private OrderCancel orderCancel;
+
+    public ReturnItems(){}
+
+    public String getItem_id() {
+        return item_id;
+    }
+
+    public void setItem_id(String item_id) {
+        this.item_id = item_id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public OrderCancel getOrderCancel() {
+        return orderCancel;
+    }
+
+    public void setOrderCancel(OrderCancel orderCancel) {
+        this.orderCancel = orderCancel;
+    }
 }

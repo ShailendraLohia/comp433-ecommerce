@@ -1,7 +1,5 @@
 package com.example.ecommerce.model.order;
 
-import com.example.ecommerce.model.order.Cart;
-
 import javax.persistence.*;
 
 @Entity

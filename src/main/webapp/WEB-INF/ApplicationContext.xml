@@ -38,7 +38,7 @@
                 <value>com.example.ecommerce.model.order.SoldProduct</value>
                 <value>com.example.ecommerce.model.cancel.order.ReturnItems</value>
                 <value>com.example.ecommerce.model.customer.Address</value>
-                <value>com.example.ecommerce.model.shipping.ShippingDetails</value>
+                <value>com.example.ecommerce.model.shipping.ShippingStatus</value>
             </list>
         </property>
         <property name="hibernateProperties">
