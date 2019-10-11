@@ -1,7 +1,7 @@
 package com.example.ecommerce.service.order;
 
 import com.example.ecommerce.dal.order.OrderDAOImpl;
-import com.example.ecommerce.representation.OrderDetails;
+import com.example.ecommerce.representation.request.order.OrderDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

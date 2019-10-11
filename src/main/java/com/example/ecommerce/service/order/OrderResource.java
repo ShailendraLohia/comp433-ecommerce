@@ -1,6 +1,6 @@
 package com.example.ecommerce.service.order;
 
-import com.example.ecommerce.representation.OrderDetails;
+import com.example.ecommerce.representation.request.order.OrderDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

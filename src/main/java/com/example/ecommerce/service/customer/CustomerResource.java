@@ -1,7 +1,7 @@
 package com.example.ecommerce.service.customer;
 
-import com.example.ecommerce.representation.UserDetails;
-import com.example.ecommerce.response.UserResponse;
+import com.example.ecommerce.representation.request.customer.UserDetails;
+import com.example.ecommerce.representation.response.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 

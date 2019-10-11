@@ -1,4 +1,4 @@
-package com.example.ecommerce.representation;
+package com.example.ecommerce.representation.request.order;
 
 import com.example.ecommerce.model.payment.CardInfo;
 import com.example.ecommerce.model.order.Cart;
