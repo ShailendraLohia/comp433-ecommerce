@@ -66,6 +66,14 @@
         <!--<property name="username" value="${MYSQL_USER}" />-->
         <!--<property name="password" value="${MYSQL_PASSWORD}" />-->
     </bean>
+    <!--<bean class = "org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+        <!--<property name = "exceptionMappings">-->
+            <!--<props>-->
+                <!--<prop key = "com.example.ecommerce.exceptions.UserNotFoundException">-->
+                <!--</prop>-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
 </beans>
 
         <!-- http://localhost:8080/ApacheCXF-Spring-Hibernate-->

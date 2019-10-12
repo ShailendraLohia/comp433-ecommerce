@@ -1,5 +1,6 @@
 package com.example.ecommerce.service.order;
 
+import com.example.ecommerce.exceptions.UserNotFoundException;
 import com.example.ecommerce.representation.request.order.OrderDetails;
 import com.example.ecommerce.representation.response.ItemsDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,18 @@ public class OrderResource {
 
     @POST
     public ResponseEntity<String> placeNewOrder(@RequestBody OrderDetails orderDetails) throws Exception{
-        String response=orderService.addNewOrder(orderDetails);
+        String response=null;
+        try {
+            response = orderService.addNewOrder(orderDetails);
 
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        }catch (UserNotFoundException ex) {
+            throw new UserNotFoundException(ex.getMessage());
+        }catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
 
-
+        return new ResponseEntity<String>(response, HttpStatus.CREATED);
+        //return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GET
@@ -35,4 +43,6 @@ public class OrderResource {
         ItemsDetail response=orderService.getAllItems(orderId);
         return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
     }
+
+
 }

@@ -13,6 +13,7 @@
 
     <!-- to support Java-to-XML and vice-versa conversion -->
     <bean id="jaxbXmlProvider" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider" />
+    <bean id="genericException" class="com.example.ecommerce.exceptions.mapper.GenericExceptionMapper"/>
 
     <!-- CXFServlet configured in web.xml sends requests here -->
     <jaxrs:server id="restContainer" address="/">
@@ -28,6 +29,7 @@
         <jaxrs:providers>
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
+            <ref bean="genericException"/>
         </jaxrs:providers>
     </jaxrs:server>
 
@@ -44,6 +46,7 @@
         <jaxrs:providers>
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
+            <ref bean="genericException"/>
         </jaxrs:providers>
     </jaxrs:server>
     <jaxrs:server id="orderContainer" address="/order">
@@ -59,6 +62,10 @@
         <jaxrs:providers>
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
+            <ref bean="genericException"/>
+            <bean class="com.example.ecommerce.exceptions.mapper.UserNotFoundExceptionMapper"/>
+            <bean class="com.example.ecommerce.exceptions.mapper.CartEmptyExceptionMapper"/>
+            <bean class="com.example.ecommerce.exceptions.mapper.OrderNotFoundExceptionMapper"/>
         </jaxrs:providers>
     </jaxrs:server>
     <jaxrs:server id="partnerContainer" address="/partner">
@@ -74,6 +81,7 @@
         <jaxrs:providers>
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
+            <ref bean="genericException"/>
         </jaxrs:providers>
     </jaxrs:server>
 </beans>
