@@ -1,6 +1,6 @@
-package com.example.ecommerce.representation.request.customer;
+package com.example.ecommerce.service.representation.request.shipping;
 
-import com.example.ecommerce.model.customer.User;
+import com.example.ecommerce.model.order.Cart;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +11,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDetails {
-    private User userData;
+public class ShippingDetails {
+    private Cart cart;
 }

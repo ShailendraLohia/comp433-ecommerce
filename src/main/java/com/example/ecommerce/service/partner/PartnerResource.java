@@ -1,6 +1,6 @@
 package com.example.ecommerce.service.partner;
 
-import com.example.ecommerce.representation.request.partner.PartnerDetails;
+import com.example.ecommerce.service.representation.request.partner.PartnerDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

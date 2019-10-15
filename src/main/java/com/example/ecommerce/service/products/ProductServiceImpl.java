@@ -2,7 +2,7 @@ package com.example.ecommerce.service.products;
 
 import com.example.ecommerce.dal.products.ProductDAOImpl;
 import com.example.ecommerce.model.product.Inventory;
-import com.example.ecommerce.representation.request.products.ProductDetails;
+import com.example.ecommerce.service.representation.request.products.ProductDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

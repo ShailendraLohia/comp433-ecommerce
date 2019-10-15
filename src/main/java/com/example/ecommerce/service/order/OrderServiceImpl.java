@@ -3,21 +3,15 @@ package com.example.ecommerce.service.order;
 import com.example.ecommerce.dal.customer.CustomerDAOImpl;
 import com.example.ecommerce.dal.order.OrderDAOImpl;
 import com.example.ecommerce.exceptions.CartEmptyException;
-import com.example.ecommerce.exceptions.Error;
 import com.example.ecommerce.exceptions.OrderNotFoundException;
 import com.example.ecommerce.exceptions.UserNotFoundException;
 import com.example.ecommerce.model.customer.User;
 import com.example.ecommerce.model.order.SoldProduct;
-import com.example.ecommerce.representation.request.order.OrderDetails;
-import com.example.ecommerce.representation.response.ItemsDetail;
+import com.example.ecommerce.service.representation.request.order.OrderDetails;
+import com.example.ecommerce.service.representation.response.ItemsDetail;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 import java.util.List;
 
 @Service
