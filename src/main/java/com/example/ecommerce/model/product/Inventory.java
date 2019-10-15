@@ -1,6 +1,7 @@
 package com.example.ecommerce.model.product;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -8,7 +9,8 @@ import javax.persistence.Table;
 @Table(name="product_details")
 public class Inventory {
     @Id
-    private String item_id;
+    @GeneratedValue
+    private long item_id;
     private String item_category;
     private double item_price;
     private int item_quantity_available;
@@ -21,11 +23,11 @@ public class Inventory {
 
     }
 
-    public String getItem_id() {
+    public long getItem_id() {
         return item_id;
     }
 
-    public void setItem_id(String item_id) {
+    public void setItem_id(long item_id) {
         this.item_id = item_id;
     }
 

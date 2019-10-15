@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Repository
 @Transactional
@@ -33,6 +35,20 @@ public class OrderDAOImpl {
                 itemData.add(items);
             }
         }
+
+//        if(cart.getItems().size()>0) {
+//            cart.getItems().forEach(items -> {
+//                items.setCart(cart);
+//                itemData.add(items);
+//            });
+//        }
+
+//        if(0 < cart.getItems().size()) {
+//            List<SoldProduct> itemData1;
+//            itemData1 = cart.getItems().stream()
+//                    .map(soldProduct -> soldProduct.setCart(cart))
+//                    .collect(Collectors.toList());
+//        }
         cart.setItems(itemData);
         cart.setUser(cart.getUser());
         Session session=sessionFactory.getCurrentSession();
@@ -49,11 +65,17 @@ public class OrderDAOImpl {
 
         List<Cart> items = (List<Cart>)criteria.list();
 
-        List<SoldProduct> products=new ArrayList<>();
+        //List<SoldProduct> products=new ArrayList<>();
 
-        for(Cart cart: items) {
-            products=cart.getItems();
-        }
+
+//        for(Cart cart: items) {
+//            products=cart.getItems();
+//        }
+
+        List<SoldProduct> products=items.stream()
+                .flatMap(cart -> cart.getItems().stream())
+                .collect(Collectors.toList());
+
         return products;
 
     }
