@@ -14,4 +14,8 @@ import java.util.List;
 @XmlRootElement
 public class ProductDetails {
     private List<Inventory> products;
+
+    public List<Inventory> getProducts() {
+        return products;
+    }
 }

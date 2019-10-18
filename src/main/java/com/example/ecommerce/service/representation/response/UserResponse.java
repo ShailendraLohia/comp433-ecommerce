@@ -12,4 +12,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @AllArgsConstructor
 public class UserResponse {
     private String userId;
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }

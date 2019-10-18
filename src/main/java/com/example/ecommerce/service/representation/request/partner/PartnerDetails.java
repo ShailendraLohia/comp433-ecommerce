@@ -13,4 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class PartnerDetails {
     private PartnerInfo partnerDetails;
+
+    public PartnerInfo getPartnerDetails() {
+        return partnerDetails;
+    }
 }

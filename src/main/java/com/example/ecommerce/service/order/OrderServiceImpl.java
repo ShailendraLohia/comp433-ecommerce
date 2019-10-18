@@ -44,7 +44,7 @@ public class OrderServiceImpl {
         if(productSold.size()==0) {
             throw new OrderNotFoundException("Requested cart not found");
         }
-        ItemsDetail itemsDetail=new ItemsDetail();
+        ItemsDetail itemsDetail = new ItemsDetail();
         itemsDetail.setCartId(orderId);
         itemsDetail.setItemsSold(productSold);
 
