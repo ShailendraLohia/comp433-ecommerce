@@ -1,6 +1,6 @@
 package com.example.ecommerce.serviceTest;
 
-import com.example.ecommerce.service.workflow.customer.CustomerActivity;
+import com.example.ecommerce.service.customer.workflow.CustomerActivity;
 
 import org.junit.Before;
 

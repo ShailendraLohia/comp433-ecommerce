@@ -1,9 +1,9 @@
 package com.example.ecommerce.service.order;
 
 import com.example.ecommerce.exceptions.UserNotFoundException;
-import com.example.ecommerce.service.representation.request.order.OrderDetails;
-import com.example.ecommerce.service.representation.response.ItemsDetail;
-import com.example.ecommerce.service.workflow.order.OrderActivity;
+import com.example.ecommerce.service.order.representation.request.OrderDetails;
+import com.example.ecommerce.service.order.representation.response.ItemsDetail;
+import com.example.ecommerce.service.order.workflow.OrderActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

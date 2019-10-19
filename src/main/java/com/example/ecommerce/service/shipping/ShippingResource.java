@@ -1,7 +1,7 @@
 package com.example.ecommerce.service.shipping;
 
-import com.example.ecommerce.service.representation.request.shipping.ShippingDetails;
-import com.example.ecommerce.service.workflow.shipping.ShippingActivity;
+import com.example.ecommerce.service.shipping.representation.ShippingDetails;
+import com.example.ecommerce.service.shipping.workflow.ShippingActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

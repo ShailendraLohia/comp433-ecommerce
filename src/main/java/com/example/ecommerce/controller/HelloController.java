@@ -1,6 +1,6 @@
 package com.example.ecommerce.controller;
 
-import com.example.ecommerce.service.workflow.customer.CustomerActivity;
+import com.example.ecommerce.service.customer.workflow.CustomerActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

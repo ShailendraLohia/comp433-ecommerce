@@ -1,8 +1,8 @@
 package com.example.ecommerce.service.customer;
 
-import com.example.ecommerce.service.representation.request.customer.UserDetails;
-import com.example.ecommerce.service.representation.response.UserResponse;
-import com.example.ecommerce.service.workflow.customer.CustomerActivity;
+import com.example.ecommerce.service.customer.representation.request.UserDetails;
+import com.example.ecommerce.service.customer.representation.response.UserResponse;
+import com.example.ecommerce.service.customer.workflow.CustomerActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 

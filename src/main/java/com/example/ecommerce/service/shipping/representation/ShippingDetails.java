@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.representation.request.shipping;
+package com.example.ecommerce.service.shipping.representation;
 
 import com.example.ecommerce.model.order.Cart;
 import com.example.ecommerce.model.shipping.ShippingStatus;

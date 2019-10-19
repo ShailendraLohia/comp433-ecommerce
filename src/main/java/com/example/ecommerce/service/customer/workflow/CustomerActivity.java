@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.workflow.customer;
+package com.example.ecommerce.service.customer.workflow;
 
 import com.example.ecommerce.dal.customer.CustomerDAOImpl;
 import com.example.ecommerce.model.customer.User;

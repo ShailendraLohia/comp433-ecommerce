@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.workflow.partner;
+package com.example.ecommerce.service.partner.workflow;
 
 import com.example.ecommerce.dal.partner.PartnerDAOImpl;
 import com.example.ecommerce.model.partner.PartnerInfo;

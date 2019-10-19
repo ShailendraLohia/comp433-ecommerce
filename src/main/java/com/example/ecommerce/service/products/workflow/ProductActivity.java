@@ -1,9 +1,9 @@
-package com.example.ecommerce.service.workflow.products;
+package com.example.ecommerce.service.products.workflow;
 
 import com.example.ecommerce.dal.products.ProductDAOImpl;
 import com.example.ecommerce.model.product.Inventory;
 import com.example.ecommerce.service.products.ProductService;
-import com.example.ecommerce.service.representation.request.products.ProductDetails;
+import com.example.ecommerce.service.products.representation.ProductDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

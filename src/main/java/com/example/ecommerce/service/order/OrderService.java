@@ -1,7 +1,7 @@
 package com.example.ecommerce.service.order;
 
-import com.example.ecommerce.service.representation.request.order.OrderDetails;
-import com.example.ecommerce.service.representation.response.ItemsDetail;
+import com.example.ecommerce.service.order.representation.request.OrderDetails;
+import com.example.ecommerce.service.order.representation.response.ItemsDetail;
 
 public interface OrderService {
     public String addNewOrder(OrderDetails orderDetails) throws Exception;

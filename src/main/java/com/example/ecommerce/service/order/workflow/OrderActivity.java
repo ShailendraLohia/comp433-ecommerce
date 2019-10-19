@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.workflow.order;
+package com.example.ecommerce.service.order.workflow;
 
 import com.example.ecommerce.dal.customer.CustomerDAOImpl;
 import com.example.ecommerce.dal.order.OrderDAOImpl;
@@ -8,8 +8,8 @@ import com.example.ecommerce.exceptions.UserNotFoundException;
 import com.example.ecommerce.model.customer.User;
 import com.example.ecommerce.model.order.SoldProduct;
 import com.example.ecommerce.service.order.OrderService;
-import com.example.ecommerce.service.representation.request.order.OrderDetails;
-import com.example.ecommerce.service.representation.response.ItemsDetail;
+import com.example.ecommerce.service.order.representation.request.OrderDetails;
+import com.example.ecommerce.service.order.representation.response.ItemsDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
