@@ -114,6 +114,7 @@
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
+            <bean class="com.example.ecommerce.exceptions.mapper.CartNotFoundExceptionMapper"/>
         </jaxrs:providers>
     </jaxrs:server>
 </beans>

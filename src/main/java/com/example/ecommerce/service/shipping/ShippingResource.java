@@ -8,8 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 
 @Controller("shippingService")
 @Path("/shippingData")
@@ -23,4 +22,17 @@ public class ShippingResource {
         return new ResponseEntity<>(shippingService.createShippingInformation(shippingDetails),
                 HttpStatus.CREATED);
     }
+    @GET
+    @Path("/{trackingNumber}")
+    public ResponseEntity<String> retrieveShippingStatus(@PathParam("trackingNumber") String trackingNumber) {
+
+        return new ResponseEntity<>(shippingService.getShippingStatus(trackingNumber),
+                HttpStatus.ACCEPTED);
+    }
+    @PUT
+    public ResponseEntity<String> updateShippingStatus(@RequestBody ShippingDetails shippingDetails) {
+        return new ResponseEntity<>(
+                shippingService.updateShippingStatus(shippingDetails),HttpStatus.ACCEPTED);
+    }
+
 }
