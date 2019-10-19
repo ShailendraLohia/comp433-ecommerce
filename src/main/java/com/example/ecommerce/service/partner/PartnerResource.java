@@ -1,6 +1,7 @@
 package com.example.ecommerce.service.partner;
 
 import com.example.ecommerce.service.representation.request.partner.PartnerDetails;
+import com.example.ecommerce.service.workflow.partner.PartnerActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import javax.ws.rs.Path;
 public class PartnerResource {
 
     @Autowired
-    private PartnerServiceImpl partnerService;
+    private PartnerActivity partnerService;
     @POST
     public ResponseEntity<String> addPartners(@RequestBody PartnerDetails partnerDetails) {
 

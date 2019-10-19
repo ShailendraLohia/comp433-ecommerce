@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.order;
+package com.example.ecommerce.service.workflow.order;
 
 import com.example.ecommerce.dal.customer.CustomerDAOImpl;
 import com.example.ecommerce.dal.order.OrderDAOImpl;
@@ -7,6 +7,7 @@ import com.example.ecommerce.exceptions.OrderNotFoundException;
 import com.example.ecommerce.exceptions.UserNotFoundException;
 import com.example.ecommerce.model.customer.User;
 import com.example.ecommerce.model.order.SoldProduct;
+import com.example.ecommerce.service.order.OrderService;
 import com.example.ecommerce.service.representation.request.order.OrderDetails;
 import com.example.ecommerce.service.representation.response.ItemsDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class OrderServiceImpl {
+public class OrderActivity implements OrderService {
     @Autowired
     private OrderDAOImpl orderDAO;
     @Autowired

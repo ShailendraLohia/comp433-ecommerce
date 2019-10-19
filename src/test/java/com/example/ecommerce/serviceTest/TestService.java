@@ -1,16 +1,16 @@
 package com.example.ecommerce.serviceTest;
 
-import com.example.ecommerce.service.customer.RegisterCustomerImpl;
+import com.example.ecommerce.service.workflow.customer.CustomerActivity;
 
 import org.junit.Before;
 
 public class TestService {
 
-	RegisterCustomerImpl impl;
+	CustomerActivity impl;
 	
 	@Before
 	public void setUp() {
-		impl = new RegisterCustomerImpl();
+		impl = new CustomerActivity();
 	}
 	
 //	@Test
