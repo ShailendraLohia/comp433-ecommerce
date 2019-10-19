@@ -3,6 +3,7 @@ package com.example.ecommerce.model.shipping;
 import com.example.ecommerce.model.order.Cart;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 
@@ -11,14 +12,13 @@ import java.util.Date;
 public class ShippingStatus {
     @Id
     private String trackingNumber;
-    private String userId;
 
     @OneToOne/*(mappedBy = "shippingDetails")*/
     @JoinColumn(name="cart_id",nullable = false)
     private Cart cart;
 
-    private Date shippingDate;
-    private Date arrivalDate;
+    private LocalDate shippingDate;
+    private LocalDate arrivalDate;
     private String shippingStatus; // enum can be used
     private String shippedBy; // USPS, UPS, Fedex
 
@@ -34,13 +34,6 @@ public class ShippingStatus {
         this.trackingNumber = trackingNumber;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public Cart getCart() {
         return cart;
@@ -50,19 +43,19 @@ public class ShippingStatus {
         this.cart = cart;
     }
 
-    public Date getShippingDate() {
+    public LocalDate getShippingDate() {
         return shippingDate;
     }
 
-    public void setShippingDate(Date shippingDate) {
+    public void setShippingDate(LocalDate shippingDate) {
         this.shippingDate = shippingDate;
     }
 
-    public Date getArrivalDate() {
+    public LocalDate getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(LocalDate arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
