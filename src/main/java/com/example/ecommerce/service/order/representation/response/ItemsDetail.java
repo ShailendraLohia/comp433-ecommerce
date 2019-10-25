@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.representation.response;
+package com.example.ecommerce.service.order.representation.response;
 
 import com.example.ecommerce.model.order.SoldProduct;
 import lombok.AllArgsConstructor;

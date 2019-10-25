@@ -1,6 +1,6 @@
 package com.example.ecommerce.exceptions.mapper;
 
-import com.example.ecommerce.exceptions.Error;
+import com.example.ecommerce.model.error.Error;
 import org.springframework.http.HttpStatus;
 
 import javax.ws.rs.core.Response;

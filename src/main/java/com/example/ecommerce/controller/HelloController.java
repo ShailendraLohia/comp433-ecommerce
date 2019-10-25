@@ -1,6 +1,6 @@
 package com.example.ecommerce.controller;
 
-import com.example.ecommerce.service.customer.RegisterCustomerImpl;
+import com.example.ecommerce.service.customer.workflow.CustomerActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -13,7 +13,7 @@ import javax.ws.rs.Path;
 public class HelloController {
 
     @Autowired
-    private RegisterCustomerImpl registerCustomer;
+    private CustomerActivity registerCustomer;
 
     @GET
     public String sayHello() {

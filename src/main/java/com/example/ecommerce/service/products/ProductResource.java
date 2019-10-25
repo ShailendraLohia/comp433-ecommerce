@@ -1,7 +1,8 @@
 package com.example.ecommerce.service.products;
 
 import com.example.ecommerce.model.product.Inventory;
-import com.example.ecommerce.service.representation.request.products.ProductDetails;
+import com.example.ecommerce.service.products.representation.ProductDetails;
+import com.example.ecommerce.service.products.workflow.ProductActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ import javax.ws.rs.PathParam;
 public class ProductResource {
 
     @Autowired
-    private ProductServiceImpl productServiceImpl;
+    private ProductActivity productServiceImpl;
 
     @POST
     public ResponseEntity<String> addProducts(@RequestBody ProductDetails productDetails) {

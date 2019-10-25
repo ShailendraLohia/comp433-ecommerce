@@ -14,6 +14,10 @@
 
 ![](UML-screen-shot.png)
 
+# Updated UML
+
+![](433Proj2_UML.png)
+
 # Tables
 
 ![](ListOfTables.png)

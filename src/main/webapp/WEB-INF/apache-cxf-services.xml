@@ -100,4 +100,21 @@
             <ref bean="genericException"/>
         </jaxrs:providers>
     </jaxrs:server>
+    <jaxrs:server id="shippingContainer" address="/ship">
+        <jaxrs:serviceBeans>
+            <ref bean="shippingService" />
+        </jaxrs:serviceBeans>
+
+        <jaxrs:extensionMappings>
+            <entry key="json" value="application/json" /> <!-- use .json to get data in JSON format -->
+            <entry key="xml" value="application/xml" />   <!-- use .xml to get data in XML format -->
+        </jaxrs:extensionMappings>
+
+        <jaxrs:providers>
+            <ref bean="jsonProvider" />
+            <ref bean="jaxbXmlProvider" />
+            <ref bean="genericException"/>
+            <bean class="com.example.ecommerce.exceptions.mapper.CartNotFoundExceptionMapper"/>
+        </jaxrs:providers>
+    </jaxrs:server>
 </beans>

@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.representation.request.products;
+package com.example.ecommerce.service.products.representation;
 
 import com.example.ecommerce.model.product.Inventory;
 import lombok.AllArgsConstructor;

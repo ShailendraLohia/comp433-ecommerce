@@ -1,4 +1,4 @@
-package com.example.ecommerce.exceptions;
+package com.example.ecommerce.model.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Data

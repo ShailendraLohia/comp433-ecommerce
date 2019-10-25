@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.representation.request.customer;
+package com.example.ecommerce.service.customer.representation.request;
 
 import com.example.ecommerce.model.customer.User;
 import lombok.AllArgsConstructor;

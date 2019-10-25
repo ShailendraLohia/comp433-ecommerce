@@ -1,4 +1,4 @@
-package com.example.ecommerce.service.representation.request.partner;
+package com.example.ecommerce.service.partner.representation;
 
 import com.example.ecommerce.model.partner.PartnerInfo;
 import lombok.AllArgsConstructor;
