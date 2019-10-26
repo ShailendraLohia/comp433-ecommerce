@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Repository
@@ -19,11 +20,11 @@ public class CustomerDAOImpl {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public User findCustomer(String userId) {
+    public Optional<User> findCustomer(String userId) {
         Session session=sessionFactory.getCurrentSession();
         User user=(User)session.get(User.class,userId);
 
-        return user;
+        return Optional.ofNullable(user);
     }
 
 
@@ -46,7 +47,7 @@ public class CustomerDAOImpl {
 
     }
 
-    public User updateCustomerData(User user) {
+    public Optional<User> updateCustomerData(User user) {
         Session session=sessionFactory.getCurrentSession();
         session.update(user);
 

@@ -47,6 +47,7 @@
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
+            <bean class="com.example.ecommerce.exceptions.mapper.UserNotFoundExceptionMapper"/>
         </jaxrs:providers>
     </jaxrs:server>
     <jaxrs:server id="orderContainer" address="/order">

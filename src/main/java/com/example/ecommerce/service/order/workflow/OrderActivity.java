@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderActivity implements OrderService {
@@ -30,9 +31,9 @@ public class OrderActivity implements OrderService {
 
         //User not registered check
         User user=orderDetails.getOrderDetails().getUser();
-        user=customerDAO.findCustomer(user.getUserId());
+        Optional<User> user_1=customerDAO.findCustomer(user.getUserId());
 
-        if(user==null) { // User not registered. Don't accept order.
+        if(!user_1.isPresent()) { // User not registered. Don't accept order.
             throw new UserNotFoundException("User not registered,Please get added into system");
             //https://www.journaldev.com/2651/spring-mvc-exception-handling-controlleradvice-exceptionhandler-handlerexceptionresolver
         }
