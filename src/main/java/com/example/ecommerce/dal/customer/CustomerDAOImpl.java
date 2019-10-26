@@ -2,6 +2,7 @@ package com.example.ecommerce.dal.customer;
 
 import com.example.ecommerce.model.payment.CardInfo;
 import com.example.ecommerce.model.customer.User;
+import com.example.ecommerce.service.customer.representation.response.UserResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,9 @@ public class CustomerDAOImpl {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public User findCustomer(User user) {
-
-        String userId=user.getUserId();
+    public User findCustomer(String userId) {
         Session session=sessionFactory.getCurrentSession();
-        user=(User)session.get(User.class,userId);
+        User user=(User)session.get(User.class,userId);
 
         return user;
     }
@@ -45,6 +44,13 @@ public class CustomerDAOImpl {
         session.persist(user);
         return userId;
 
+    }
+
+    public User updateCustomerData(User user) {
+        Session session=sessionFactory.getCurrentSession();
+        session.update(user);
+
+        return findCustomer(user.getUserId());
     }
 
 }

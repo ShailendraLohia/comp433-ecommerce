@@ -30,7 +30,7 @@ public class OrderActivity implements OrderService {
 
         //User not registered check
         User user=orderDetails.getOrderDetails().getUser();
-        user=customerDAO.findCustomer(user);
+        user=customerDAO.findCustomer(user.getUserId());
 
         if(user==null) { // User not registered. Don't accept order.
             throw new UserNotFoundException("User not registered,Please get added into system");
