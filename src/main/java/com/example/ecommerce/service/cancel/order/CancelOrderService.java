@@ -1,9 +1,7 @@
 package com.example.ecommerce.service.cancel.order;
 
-import com.example.ecommerce.service.cancel.order.representation.request.CancelOrderDetails;
-import com.example.ecommerce.service.cancel.order.representation.response.CancelOrderResponse;
+import com.example.ecommerce.model.cancel.order.OrderCancel;
 
 public interface CancelOrderService {
-    public String cancelOrder(CancelOrderDetails cancelOrderDetails) throws Exception;
-    public CancelOrderResponse returnAllItems(String cancelOrderId);
+
 }
