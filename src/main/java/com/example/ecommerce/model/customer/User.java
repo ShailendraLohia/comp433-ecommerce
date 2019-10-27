@@ -1,6 +1,8 @@
 package com.example.ecommerce.model.customer;
 
 import com.example.ecommerce.model.payment.CardInfo;
+import lombok.Getter;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,9 +19,11 @@ public class User {
     private boolean primeMember;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    //@JsonIgnore
     private Set<CardInfo> paymentDetails;
 
     @OneToMany(mappedBy = "userId")
+    //@JsonIgnore
     private List<Address> addresses;
 
 //    @Embedded

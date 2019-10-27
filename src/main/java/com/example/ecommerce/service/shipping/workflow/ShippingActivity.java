@@ -26,8 +26,7 @@ public class ShippingActivity implements ShippingService {
     public String getShippingStatus(String trackingNumber) {
         Optional<String> resultStatus=shippingDAO.fetchShippingStatus(trackingNumber);
 
-        //TODO Not found exception not working
-        if(resultStatus.get()==null) {//means tracking number doesn't exist
+        if(!resultStatus.isPresent()) {//means tracking number doesn't exist
             throw new CartNotFoundException("Your Order is not available with us!");
         }
         return resultStatus.get();
@@ -38,7 +37,7 @@ public class ShippingActivity implements ShippingService {
             throw new CartNotFoundException("Your Order is not available with us!");
 
         //Validate tracking number
-        //getShippingStatus(shippingDetails.getShippingDetails().getCart().getCartId());
+        getShippingStatus(shippingDetails.getShippingDetails().getTrackingNumber());
 
         return shippingDAO.modifyStatus(shippingDetails.getShippingDetails()).get();
     }

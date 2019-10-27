@@ -1,5 +1,6 @@
 package com.example.ecommerce.service.customer;
 
+import com.example.ecommerce.model.customer.User;
 import com.example.ecommerce.service.customer.representation.request.UserDetails;
 import com.example.ecommerce.service.customer.representation.response.UserResponse;
 import com.example.ecommerce.service.customer.workflow.CustomerActivity;
@@ -10,9 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Controller("userService")
@@ -25,9 +24,23 @@ public class CustomerResource {
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public ResponseEntity<UserResponse> addUsers(@RequestBody UserDetails userData) {
-        String response = registerCustomer.registerCustomer(userData.getUserData());
-        UserResponse userResponse = new UserResponse();
-        userResponse.setUserId(response);
+
+        UserResponse userResponse = registerCustomer.registerCustomer(userData.getUserData());
         return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
+    }
+
+    @GET
+    @Path("/{userId}")
+    public ResponseEntity<UserResponse> lookForUser(@PathParam("userId") String userId) {
+
+        UserResponse userResponse=registerCustomer.searchCustomer(userId);
+        return new ResponseEntity<>(userResponse,HttpStatus.ACCEPTED);
+    }
+
+    @PUT
+    public ResponseEntity<UserResponse> updateUsers(@RequestBody UserDetails userData) {
+
+        UserResponse userResponse = registerCustomer.modifyCustomerData(userData.getUserData());
+        return new ResponseEntity<>(userResponse, HttpStatus.ACCEPTED);
     }
 }

@@ -53,8 +53,11 @@ public class ShippingDAOImpl {
         List<ShippingStatus> status=criteria.list();
 
         //String shippingStatus=status.get(0).getShippingStatus();
-        return status.stream().map(shippingStatus -> shippingStatus.getShippingStatus())
+        return status.stream()
+                .map(ShippingStatus::getShippingStatus)
                 .findFirst();
+//        return status.stream().map(shippingStatus -> shippingStatus.getShippingStatus())
+//                .findFirst();
     }
 
     public Optional<String> modifyStatus(ShippingStatus shippingStatus) {

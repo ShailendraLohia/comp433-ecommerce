@@ -1,6 +1,5 @@
 package com.example.ecommerce.service.shipping.representation;
 
-import com.example.ecommerce.model.order.Cart;
 import com.example.ecommerce.model.shipping.ShippingStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
