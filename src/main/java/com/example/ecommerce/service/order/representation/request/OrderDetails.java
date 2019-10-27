@@ -15,4 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class OrderDetails {
     private Cart orderDetails;
     private CardInfo paymentDetails;
+
+    public Cart getOrderDetails() {
+        return orderDetails;
+    }
 }

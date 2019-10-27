@@ -15,4 +15,12 @@ import java.util.List;
 public class ItemsDetail {
     private String cartId;
     private List<SoldProduct> itemsSold;
+
+    public void setCartId(String cartId) {
+        this.cartId = cartId;
+    }
+
+    public void setItemsSold(List<SoldProduct> itemsSold) {
+        this.itemsSold = itemsSold;
+    }
 }

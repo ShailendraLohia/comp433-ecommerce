@@ -13,4 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @AllArgsConstructor
 public class UserDetails {
     private User userData;
+
+    public User getUserData() {
+        return userData;
+    }
 }
