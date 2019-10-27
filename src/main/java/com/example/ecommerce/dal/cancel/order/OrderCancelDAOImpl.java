@@ -46,16 +46,16 @@ public class OrderCancelDAOImpl {
         return cancelOrderId;
     }
 
-    public List<ReturnItems> findReturnItems(String returnOrderId) {
+    public Set<ReturnItems> findReturnItems(String returnOrderId) {
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(OrderCancel.class)
                 .add(Restrictions.eq("cancelOrderId", returnOrderId));
 
         List<OrderCancel> items = (List<OrderCancel>)criteria.list();
 
-        List<ReturnItems> returnItems = items.stream()
+        Set<ReturnItems> returnItems = items.stream()
                 .flatMap(OrderCancel -> OrderCancel.getReturnItems().stream())
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
 
         return returnItems;
     }
