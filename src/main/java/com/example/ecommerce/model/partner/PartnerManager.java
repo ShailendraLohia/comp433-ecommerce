@@ -6,7 +6,7 @@ import java.time.Instant;
 
 public class PartnerManager {
 
-    private PartnerDAOImpl partnerDAO;
+    private PartnerDAOImpl partnerDAO = new PartnerDAOImpl();
 
     public String savePartnerInfo(PartnerInfo partnerInfo) {
         String partnerId=String.valueOf(Instant.now().toEpochMilli())
