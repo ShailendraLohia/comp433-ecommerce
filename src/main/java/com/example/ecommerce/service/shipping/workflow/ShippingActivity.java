@@ -1,7 +1,7 @@
 package com.example.ecommerce.service.shipping.workflow;
 
-import com.example.ecommerce.dal.shipping.ShippingDAOImpl;
 import com.example.ecommerce.exceptions.CartNotFoundException;
+import com.example.ecommerce.model.shipping.ShippingManager;
 import com.example.ecommerce.service.shipping.representation.ShippingDetails;
 import com.example.ecommerce.service.shipping.ShippingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,18 +13,19 @@ import java.util.Optional;
 public class ShippingActivity implements ShippingService {
 
     @Autowired
-    private ShippingDAOImpl shippingDAO;
+    //private ShippingDAOImpl shippingDAO;
+    private ShippingManager shippingManager;
 
     public String createShippingInformation(ShippingDetails shippingDetails) {
         if(shippingDetails.getShippingDetails().getCart()==null)
             throw new CartNotFoundException("Your Order is not available with us!");
 
-        return shippingDAO.saveShippingInfo(shippingDetails.getShippingDetails());
+        return shippingManager.saveShippingInfo(shippingDetails.getShippingDetails());
 
     }
 
     public String getShippingStatus(String trackingNumber) {
-        Optional<String> resultStatus=shippingDAO.fetchShippingStatus(trackingNumber);
+        Optional<String> resultStatus=shippingManager.fetchShippingStatus(trackingNumber);
 
         if(!resultStatus.isPresent()) {//means tracking number doesn't exist
             throw new CartNotFoundException("Your Order is not available with us!");
@@ -39,6 +40,6 @@ public class ShippingActivity implements ShippingService {
         //Validate tracking number
         getShippingStatus(shippingDetails.getShippingDetails().getTrackingNumber());
 
-        return shippingDAO.modifyStatus(shippingDetails.getShippingDetails()).get();
+        return shippingManager.modifyStatus(shippingDetails.getShippingDetails()).get();
     }
 }

@@ -22,55 +22,27 @@ public class ShippingDAOImpl {
     private SessionFactory sessionFactory;
 
     public String saveShippingInfo(ShippingStatus shippingStatus) {
-
-        //Generate Primary Key for customer
-        String trackingNumber=(Instant.now().toEpochMilli())+
-                shippingStatus.getCart().getCartId();
-
-         //Set Shipping Status fields
-        shippingStatus.setTrackingNumber(trackingNumber);
-        shippingStatus.setCart(shippingStatus.getCart());
-        shippingStatus.setShippedBy(shippingStatus.getShippedBy());
-        shippingStatus.setShippingDate(LocalDate.now());
-        shippingStatus.setArrivalDate(shippingStatus.getShippingDate().plusDays(2));
-        shippingStatus.setShippingStatus(shippingStatus.getShippingStatus());
-
         Session session=sessionFactory.getCurrentSession();
-
         session.save(shippingStatus);
 
-        return trackingNumber;
-
+        return shippingStatus.getTrackingNumber();
     }
 
     public Optional<String> fetchShippingStatus(String trackingNumber) {
-
         Session session=sessionFactory.getCurrentSession();
-
         Criteria criteria=session.createCriteria(ShippingStatus.class)
                 .add(Restrictions.eq("trackingNumber",trackingNumber));
-
         List<ShippingStatus> status=criteria.list();
 
-        //String shippingStatus=status.get(0).getShippingStatus();
         return status.stream()
                 .map(ShippingStatus::getShippingStatus)
                 .findFirst();
-//        return status.stream().map(shippingStatus -> shippingStatus.getShippingStatus())
-//                .findFirst();
     }
 
     public Optional<String> modifyStatus(ShippingStatus shippingStatus) {
-
-
-        shippingStatus.setShippingStatus(shippingStatus.getShippingStatus());
-
         Session session=sessionFactory.getCurrentSession();
-
         session.update(shippingStatus);
 
         return fetchShippingStatus(shippingStatus.getTrackingNumber());
-
-
     }
 }
