@@ -16,15 +16,16 @@ public class PartnerDAOImpl {
     private SessionFactory sessionFactory;
 
     public String savePartnerInfo(PartnerInfo partnerInfo) {
-        String partnerId=String.valueOf(Instant.now().toEpochMilli())
-                +partnerInfo.getPartnerName();
-
-        partnerInfo.setPartnerId(partnerId);
+//        String partnerId=String.valueOf(Instant.now().toEpochMilli())
+//                +partnerInfo.getPartnerName();
+//
+//        partnerInfo.setPartnerId(partnerId);
 
         Session session=sessionFactory.getCurrentSession();
         session.save(partnerInfo);
 
-        return partnerId;
+//        return partnerId;
+        return partnerInfo.getPartnerId();
 
     }
 }
