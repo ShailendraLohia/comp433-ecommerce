@@ -1,7 +1,5 @@
 package com.example.ecommerce.service.order.workflow;
 
-import com.example.ecommerce.dal.customer.CustomerDAOImpl;
-import com.example.ecommerce.dal.order.OrderDAOImpl;
 import com.example.ecommerce.exceptions.CartEmptyException;
 import com.example.ecommerce.exceptions.OrderNotFoundException;
 import com.example.ecommerce.exceptions.UserNotFoundException;
@@ -22,9 +20,10 @@ import java.util.Optional;
 public class OrderActivity implements OrderService {
     @Autowired
     private OrderManager orderManager;
+    @Autowired
     private CustomerManager customerManager;
 
-    public String addNewOrder(OrderDetails orderDetails) throws Exception{
+    public String addNewOrder(OrderDetails orderDetails) throws Exception {
         //Cart empty check
         List<SoldProduct> products=orderDetails.getOrderDetails().getItems();
         if(products.size()==0)

@@ -1,6 +1,5 @@
 package com.example.ecommerce.model.order;
 
-import com.example.ecommerce.dal.customer.CustomerDAOImpl;
 import com.example.ecommerce.dal.order.OrderDAOImpl;
 
 import java.time.Instant;
@@ -10,7 +9,6 @@ import java.util.List;
 public class OrderManager {
 
     private OrderDAOImpl orderDAO = new OrderDAOImpl();
-    private CustomerDAOImpl customerDAO = new CustomerDAOImpl();
 
     public String saveOrders(Cart cart) {
         List<SoldProduct> itemData = new ArrayList<>();
