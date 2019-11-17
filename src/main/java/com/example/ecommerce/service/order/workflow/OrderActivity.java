@@ -38,7 +38,7 @@ public class OrderActivity implements OrderService {
             throw new UserNotFoundException("User not registered,Please get added into system");
             //https://www.journaldev.com/2651/spring-mvc-exception-handling-controlleradvice-exceptionhandler-handlerexceptionresolver
         }
-        
+
         return orderManager.saveOrders(orderDetails.getOrderDetails());
     }
 

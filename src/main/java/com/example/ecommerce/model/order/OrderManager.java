@@ -9,8 +9,8 @@ import java.util.List;
 
 public class OrderManager {
 
-    private OrderDAOImpl orderDAO;
-    private CustomerDAOImpl customerDAO;
+    private OrderDAOImpl orderDAO = new OrderDAOImpl();
+    private CustomerDAOImpl customerDAO = new CustomerDAOImpl();
 
     public String saveOrders(Cart cart) {
         List<SoldProduct> itemData = new ArrayList<>();
