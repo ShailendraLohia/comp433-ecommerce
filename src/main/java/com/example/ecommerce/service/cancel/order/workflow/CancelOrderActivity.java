@@ -1,8 +1,8 @@
 package com.example.ecommerce.service.cancel.order.workflow;
 
-import com.example.ecommerce.dal.cancel.order.OrderCancelDAOImpl;
 import com.example.ecommerce.exceptions.OrderNotFoundException;
 import com.example.ecommerce.exceptions.ReturnListEmptyException;
+import com.example.ecommerce.model.cancel.order.CancelOrderManager;
 import com.example.ecommerce.model.cancel.order.OrderCancel;
 import com.example.ecommerce.model.cancel.order.ReturnItems;
 import com.example.ecommerce.service.cancel.order.CancelOrderService;
@@ -17,7 +17,7 @@ import java.util.Set;
 public class CancelOrderActivity implements CancelOrderService {
 
     @Autowired
-    private OrderCancelDAOImpl orderCancelDAO;
+    private CancelOrderManager cancelOrderManager;
 
     public String cancelOrder(CancelOrderDetails cancelOrderDetails) throws Exception {
         OrderCancel orderCancel = cancelOrderDetails.getOrderCancel();
@@ -25,11 +25,11 @@ public class CancelOrderActivity implements CancelOrderService {
         Set<ReturnItems> items = orderCancel.getReturnItems();
         if(items.size() == 0)
             throw new ReturnListEmptyException("Return List cannot be empty");
-        return orderCancelDAO.saveReturnItems(orderCancel);
+        return cancelOrderManager.saveReturnItems(orderCancel);
     }
 
     public CancelOrderResponse returnAllItems(String orderCancelId) {
-        Set<ReturnItems> orderCancelItems = orderCancelDAO.findReturnItems(orderCancelId);
+        Set<ReturnItems> orderCancelItems = cancelOrderManager.findReturnItems(orderCancelId);
         if(orderCancelItems.size() == 0) {
             throw new OrderNotFoundException("Requested cart not found");
         }
