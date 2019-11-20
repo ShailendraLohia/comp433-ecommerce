@@ -18,10 +18,9 @@ import java.util.Optional;
 
 @Service
 public class OrderActivity implements OrderService {
-    @Autowired
-    private OrderManager orderManager;
-    @Autowired
-    private CustomerManager customerManager;
+
+    private OrderManager orderManager = new OrderManager();
+    private CustomerManager customerManager = new CustomerManager();
 
     public String addNewOrder(OrderDetails orderDetails) throws Exception {
         //Cart empty check

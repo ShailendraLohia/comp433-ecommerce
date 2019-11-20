@@ -14,13 +14,13 @@ import java.util.Optional;
 @Service
 public class CustomerActivity implements CustomerService {
 
-    @Autowired
+//    @Autowired
 //    private CustomerDAOImpl dao;
-    private CustomerManager customerManager;
+    private CustomerManager customerManager = new CustomerManager();
 
     public UserResponse registerCustomer(User user) {
 //        String userId=dao.addCustomer(user);
-        String userId=customerManager.addCustomer(user);
+        String userId = customerManager.addCustomer(user);
 
         UserResponse userResponse=new UserResponse();
         userResponse.setUserId(userId);

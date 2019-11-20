@@ -1,6 +1,7 @@
 package com.example.ecommerce.model.order;
 
 import com.example.ecommerce.dal.order.OrderDAOImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -8,7 +9,8 @@ import java.util.List;
 
 public class OrderManager {
 
-    private OrderDAOImpl orderDAO = new OrderDAOImpl();
+    @Autowired
+    private OrderDAOImpl orderDAO;
 
     public String saveOrders(Cart cart) {
         List<SoldProduct> itemData = new ArrayList<>();

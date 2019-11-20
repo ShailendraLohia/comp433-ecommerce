@@ -16,8 +16,8 @@ import java.util.Set;
 @Service
 public class CancelOrderActivity implements CancelOrderService {
 
-    @Autowired
-    private CancelOrderManager cancelOrderManager;
+    //@Autowired
+    private CancelOrderManager cancelOrderManager = new CancelOrderManager();
 
     public String cancelOrder(CancelOrderDetails cancelOrderDetails) throws Exception {
         OrderCancel orderCancel = cancelOrderDetails.getOrderCancel();

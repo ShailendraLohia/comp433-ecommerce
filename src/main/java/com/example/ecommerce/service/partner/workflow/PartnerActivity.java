@@ -10,13 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class PartnerActivity implements PartnerService {
 
-    @Autowired
-//    private PartnerDAOImpl partnerDAO;
-    private PartnerManager partnerManager;
+    //@Autowired
+    //private PartnerDAOImpl partnerDAO;
+    private PartnerManager partnerManager = new PartnerManager();
 
     public String addPartnerData(PartnerInfo partnerInfo) {
 
-//        return partnerDAO.savePartnerInfo(partnerInfo);
         return partnerManager.savePartnerInfo(partnerInfo);
     }
 }

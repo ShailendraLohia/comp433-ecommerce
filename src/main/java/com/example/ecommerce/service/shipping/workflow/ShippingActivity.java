@@ -12,9 +12,9 @@ import java.util.Optional;
 @Service
 public class ShippingActivity implements ShippingService {
 
-    @Autowired
+    //@Autowired
     //private ShippingDAOImpl shippingDAO;
-    private ShippingManager shippingManager;
+    private ShippingManager shippingManager = new ShippingManager();
 
     public String createShippingInformation(ShippingDetails shippingDetails) {
         if(shippingDetails.getShippingDetails().getCart()==null)

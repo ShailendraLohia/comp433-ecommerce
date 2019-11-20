@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductActivity implements ProductService {
 
-    @Autowired
-    private ProductManager productManager;
+    //@Autowired
+    private ProductManager productManager = new ProductManager();
 
     public String addAllProducts(ProductDetails productDetails) {
 
