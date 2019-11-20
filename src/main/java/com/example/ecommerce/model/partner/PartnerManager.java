@@ -14,6 +14,6 @@ public class PartnerManager {
 
         partnerInfo.setPartnerId(partnerId);
 
-        return partnerId;
+        return partnerDAO.savePartnerInfo(partnerInfo);
     }
 }
