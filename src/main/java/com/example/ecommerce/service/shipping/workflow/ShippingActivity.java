@@ -1,6 +1,7 @@
 package com.example.ecommerce.service.shipping.workflow;
 
 import com.example.ecommerce.exceptions.CartNotFoundException;
+import com.example.ecommerce.model.Link;
 import com.example.ecommerce.model.shipping.ShippingManager;
 import com.example.ecommerce.service.shipping.representation.ShippingDetails;
 import com.example.ecommerce.service.shipping.ShippingService;
@@ -41,5 +42,10 @@ public class ShippingActivity implements ShippingService {
         getShippingStatus(shippingDetails.getShippingDetails().getTrackingNumber());
 
         return shippingManager.modifyStatus(shippingDetails.getShippingDetails()).get();
+    }
+
+    private void setLinks(ShippingDetails response) {
+        Link buy = new Link("buy", "http://");
+        response.setLinks(buy);
     }
 }

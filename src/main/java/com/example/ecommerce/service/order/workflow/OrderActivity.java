@@ -3,6 +3,7 @@ package com.example.ecommerce.service.order.workflow;
 import com.example.ecommerce.exceptions.CartEmptyException;
 import com.example.ecommerce.exceptions.OrderNotFoundException;
 import com.example.ecommerce.exceptions.UserNotFoundException;
+import com.example.ecommerce.model.Link;
 import com.example.ecommerce.model.customer.CustomerManager;
 import com.example.ecommerce.model.customer.User;
 import com.example.ecommerce.model.order.OrderManager;
@@ -50,5 +51,10 @@ public class OrderActivity implements OrderService {
         itemsDetail.setItemsSold(productSold);
 
         return itemsDetail;
+    }
+
+    private void setLinks(ItemsDetail response) {
+        Link buy = new Link("buy", "http://");
+        response.setLinks(buy);
     }
 }

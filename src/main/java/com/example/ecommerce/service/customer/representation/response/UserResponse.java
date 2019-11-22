@@ -1,5 +1,6 @@
 package com.example.ecommerce.service.customer.representation.response;
 
+import com.example.ecommerce.service.AbstractRepresentation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserResponse {
+public class UserResponse extends AbstractRepresentation {
     private String userId;
     private String userName;
     private Date dateOfBirth;

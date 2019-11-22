@@ -1,6 +1,7 @@
 package com.example.ecommerce.service.products.workflow;
 
 import com.example.ecommerce.dal.products.ProductDAOImpl;
+import com.example.ecommerce.model.Link;
 import com.example.ecommerce.model.product.Inventory;
 import com.example.ecommerce.model.product.ProductManager;
 import com.example.ecommerce.service.products.ProductService;
@@ -15,13 +16,15 @@ public class ProductActivity implements ProductService {
     private ProductManager productManager = new ProductManager();
 
     public String addAllProducts(ProductDetails productDetails) {
-
         return productManager.saveProducts(productDetails.getProducts());
     }
 
     public Inventory findProduct(long productId) {
         return productManager.lookProduct(productId);
-
     }
 
+    private void setLinks(ProductDetails response) {
+        Link buy = new Link("buy", "http://");
+        response.setLinks(buy);
+    }
 }

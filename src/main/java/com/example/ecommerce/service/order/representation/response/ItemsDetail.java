@@ -1,6 +1,7 @@
 package com.example.ecommerce.service.order.representation.response;
 
 import com.example.ecommerce.model.order.SoldProduct;
+import com.example.ecommerce.service.AbstractRepresentation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ItemsDetail {
+public class ItemsDetail extends AbstractRepresentation {
     private String cartId;
     private List<SoldProduct> itemsSold;
 

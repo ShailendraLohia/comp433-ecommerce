@@ -2,6 +2,7 @@ package com.example.ecommerce.service.cancel.order.workflow;
 
 import com.example.ecommerce.exceptions.OrderNotFoundException;
 import com.example.ecommerce.exceptions.ReturnListEmptyException;
+import com.example.ecommerce.model.Link;
 import com.example.ecommerce.model.cancel.order.CancelOrderManager;
 import com.example.ecommerce.model.cancel.order.OrderCancel;
 import com.example.ecommerce.model.cancel.order.ReturnItems;
@@ -36,5 +37,10 @@ public class CancelOrderActivity implements CancelOrderService {
         CancelOrderResponse cancelOrderResponse = new CancelOrderResponse();
         cancelOrderResponse.setReturnItems(orderCancelItems);
         return cancelOrderResponse;
+    }
+
+    private void setLinks(CancelOrderResponse response) {
+        Link buy = new Link("buy", "http://");
+        response.setLinks(buy);
     }
 }

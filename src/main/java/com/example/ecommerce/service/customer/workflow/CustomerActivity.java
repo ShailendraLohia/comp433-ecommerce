@@ -2,6 +2,7 @@ package com.example.ecommerce.service.customer.workflow;
 
 import com.example.ecommerce.dal.customer.CustomerDAOImpl;
 import com.example.ecommerce.exceptions.UserNotFoundException;
+import com.example.ecommerce.model.Link;
 import com.example.ecommerce.model.customer.CustomerManager;
 import com.example.ecommerce.model.customer.User;
 import com.example.ecommerce.service.customer.CustomerService;
@@ -19,7 +20,6 @@ public class CustomerActivity implements CustomerService {
     private CustomerManager customerManager = new CustomerManager();
 
     public UserResponse registerCustomer(User user) {
-//        String userId=dao.addCustomer(user);
         String userId = customerManager.addCustomer(user);
 
         UserResponse userResponse=new UserResponse();
@@ -28,11 +28,11 @@ public class CustomerActivity implements CustomerService {
         userResponse.setPrimeMember(user.isPrimeMember());
         userResponse.setUserName(user.getUserName());
 
+        setLinks(userResponse);
         return userResponse;
     }
 
     public UserResponse searchCustomer(String userId) {
-//        Optional<User> user=dao.findCustomer(userId);
         Optional<User> user=customerManager.findCustomer(userId);
 
         if(!user.isPresent()) { // User not registered. Don't accept order.
@@ -42,14 +42,12 @@ public class CustomerActivity implements CustomerService {
         return createUserResponseObject(user.get());
     }
     public UserResponse modifyCustomerData(User user) {
-//        Optional<User> user_1=dao.findCustomer(user.getUserId()); //Look user first
         Optional<User> user_1=customerManager.findCustomer(user.getUserId());
 
         if(!user_1.isPresent()) { // User not registered. Don't accept order.
             throw new UserNotFoundException("User not registered,Please get added into system");
         }
 
-//        Optional<User> user_2=dao.updateCustomerData(user);
         Optional<User> user_2=customerManager.updateCustomerData(user);
         return createUserResponseObject(user_2.get());
 
@@ -63,5 +61,11 @@ public class CustomerActivity implements CustomerService {
         userResponse.setUserName(user.getUserName());
 
         return userResponse;
+    }
+
+    private void setLinks(UserResponse response) {
+        Link buy = new Link("view",
+                "http://localhost:8080/services/product/products/"+response.getUserId());
+        response.setLinks(buy);
     }
 }
