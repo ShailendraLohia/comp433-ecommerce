@@ -23,37 +23,10 @@ public class OrderDAOImpl {
 
     //@Transactional
     public String saveOrders(Cart cart) {
-        List<SoldProduct> itemData=new ArrayList<>();
-
-        String cartId=String.valueOf(Instant.now().toEpochMilli());
-        cart.setCartId(cartId);
-
-        if(cart.getItems().size()>0) {
-            for(SoldProduct items:cart.getItems()) {
-                items.setCart(cart);
-                itemData.add(items);
-            }
-        }
-
-//        if(cart.getItems().size()>0) {
-//            cart.getItems().forEach(items -> {
-//                items.setCart(cart);
-//                itemData.add(items);
-//            });
-//        }
-
-//        if(0 < cart.getItems().size()) {
-//            List<SoldProduct> itemData1;
-//            itemData1 = cart.getItems().stream()
-//                    .map(soldProduct -> soldProduct.setCart(cart))
-//                    .collect(Collectors.toList());
-//        }
-        cart.setItems(itemData);
-        cart.setUser(cart.getUser());
         Session session=sessionFactory.getCurrentSession();
         session.persist(cart);
 
-        return cartId;
+        return cart.getCartId();
     }
 
 
@@ -64,18 +37,10 @@ public class OrderDAOImpl {
 
         List<Cart> items = (List<Cart>)criteria.list();
 
-        //List<SoldProduct> products=new ArrayList<>();
-
-
-//        for(Cart cart: items) {
-//            products=cart.getItems();
-//        }
-
         List<SoldProduct> products=items.stream()
                 .flatMap(cart -> cart.getItems().stream())
                 .collect(Collectors.toList());
 
         return products;
-
     }
 }

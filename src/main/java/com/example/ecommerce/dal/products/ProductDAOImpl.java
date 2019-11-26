@@ -18,7 +18,7 @@ public class ProductDAOImpl {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public String saveProucts(List<Inventory> products) {
+    public String saveProducts(List<Inventory> products) {
         Session session=sessionFactory.getCurrentSession();
         for(Inventory item:products) {
             session.save(item);
