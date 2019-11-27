@@ -11,6 +11,7 @@ import com.example.ecommerce.model.order.SoldProduct;
 import com.example.ecommerce.service.order.OrderService;
 import com.example.ecommerce.service.order.representation.request.OrderDetails;
 import com.example.ecommerce.service.order.representation.response.ItemsDetail;
+import com.example.ecommerce.service.order.representation.response.OrderDetailsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +21,12 @@ import java.util.Optional;
 @Service
 public class OrderActivity implements OrderService {
 
-    private OrderManager orderManager = new OrderManager();
-    private CustomerManager customerManager = new CustomerManager();
+    @Autowired
+    private OrderManager orderManager;// = new OrderManager();
+    @Autowired
+    private CustomerManager customerManager;// = new CustomerManager();
 
-    public String addNewOrder(OrderDetails orderDetails) throws Exception {
+    public OrderDetailsResponse addNewOrder(OrderDetails orderDetails) throws Exception {
         //Cart empty check
         List<SoldProduct> products=orderDetails.getOrderDetails().getItems();
         if(products.size()==0)
@@ -38,7 +41,13 @@ public class OrderActivity implements OrderService {
             //https://www.journaldev.com/2651/spring-mvc-exception-handling-controlleradvice-exceptionhandler-handlerexceptionresolver
         }
 
-        return orderManager.saveOrders(orderDetails.getOrderDetails());
+        String cartId=orderManager.saveOrders(orderDetails.getOrderDetails());
+        OrderDetailsResponse orderDetailsResponse=new OrderDetailsResponse();
+        orderDetailsResponse.setCartId(cartId);
+        setLinks(orderDetailsResponse);
+
+        return orderDetailsResponse;
+
     }
 
     public ItemsDetail getAllItems(String orderId) {
@@ -49,12 +58,12 @@ public class OrderActivity implements OrderService {
         ItemsDetail itemsDetail = new ItemsDetail();
         itemsDetail.setCartId(orderId);
         itemsDetail.setItemsSold(productSold);
-
+        itemsDetail.setOrderStatus("Order Placed");
         return itemsDetail;
     }
 
-    private void setLinks(ItemsDetail response) {
-        Link buy = new Link("buy", "http://");
-        response.setLinks(buy);
+    private void setLinks(OrderDetailsResponse response) {
+        Link orderDetails = new Link("order status", "http://localhost:8080/services/order/orders/" + response.getCartId());
+        response.setLinks(orderDetails);
     }
 }

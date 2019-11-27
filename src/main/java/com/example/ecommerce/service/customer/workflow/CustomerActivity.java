@@ -15,9 +15,10 @@ import java.util.Optional;
 @Service
 public class CustomerActivity implements CustomerService {
 
-//    @Autowired
+
 //    private CustomerDAOImpl dao;
-    private CustomerManager customerManager = new CustomerManager();
+    @Autowired
+    private CustomerManager customerManager;// = new CustomerManager();
 
     public UserResponse registerCustomer(User user) {
         String userId = customerManager.addCustomer(user);
@@ -64,8 +65,10 @@ public class CustomerActivity implements CustomerService {
     }
 
     private void setLinks(UserResponse response) {
-        Link buy = new Link("view",
-                "http://localhost:8080/services/product/products/"+response.getUserId());
-        response.setLinks(buy);
+        Link viewCustomer = new Link("view",
+                "http://localhost:8080/services/userdata/users/"+response.getUserId());
+
+        response.setLinks(viewCustomer);
+
     }
 }

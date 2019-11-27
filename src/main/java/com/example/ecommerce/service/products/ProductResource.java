@@ -2,6 +2,7 @@ package com.example.ecommerce.service.products;
 
 import com.example.ecommerce.model.product.Inventory;
 import com.example.ecommerce.service.products.representation.ProductDetails;
+import com.example.ecommerce.service.products.representation.ProductRepresentation;
 import com.example.ecommerce.service.products.workflow.ProductActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +31,7 @@ public class ProductResource {
 
     @GET
     @Path("/{productId}")
-    public ResponseEntity<Inventory> searchProduct(@PathParam("productId") long productId) {
+    public ResponseEntity<ProductRepresentation> searchProduct(@PathParam("productId") long productId) {
         return new ResponseEntity<>(productServiceImpl.findProduct(productId),HttpStatus.ACCEPTED);
     }
 }

@@ -3,6 +3,7 @@ package com.example.ecommerce.service.order;
 import com.example.ecommerce.exceptions.UserNotFoundException;
 import com.example.ecommerce.service.order.representation.request.OrderDetails;
 import com.example.ecommerce.service.order.representation.response.ItemsDetail;
+import com.example.ecommerce.service.order.representation.response.OrderDetailsResponse;
 import com.example.ecommerce.service.order.workflow.OrderActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,8 +24,8 @@ public class OrderResource {
     private OrderActivity orderService;
 
     @POST
-    public ResponseEntity<String> placeNewOrder(@RequestBody OrderDetails orderDetails) throws Exception{
-        String response=null;
+    public ResponseEntity<OrderDetailsResponse> placeNewOrder(@RequestBody OrderDetails orderDetails) throws Exception{
+        OrderDetailsResponse response=null;
         try {
             response = orderService.addNewOrder(orderDetails);
 
@@ -34,7 +35,8 @@ public class OrderResource {
             throw new Exception(ex.getMessage());
         }
 
-        return new ResponseEntity<String>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+
         //return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 

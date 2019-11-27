@@ -5,6 +5,7 @@ import com.example.ecommerce.model.Link;
 import com.example.ecommerce.model.shipping.ShippingManager;
 import com.example.ecommerce.service.shipping.representation.ShippingDetails;
 import com.example.ecommerce.service.shipping.ShippingService;
+import com.example.ecommerce.service.shipping.representation.response.ShippingDetailsResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,16 +14,22 @@ import java.util.Optional;
 @Service
 public class ShippingActivity implements ShippingService {
 
-    //@Autowired
+    @Autowired
     //private ShippingDAOImpl shippingDAO;
-    private ShippingManager shippingManager = new ShippingManager();
+    private ShippingManager shippingManager;// = new ShippingManager();
 
-    public String createShippingInformation(ShippingDetails shippingDetails) {
+    public ShippingDetailsResponse createShippingInformation(ShippingDetails shippingDetails) {
         if(shippingDetails.getShippingDetails().getCart()==null)
             throw new CartNotFoundException("Your Order is not available with us!");
 
-        return shippingManager.saveShippingInfo(shippingDetails.getShippingDetails());
+        String trackingNumber=shippingManager.saveShippingInfo(shippingDetails.getShippingDetails());
+        ShippingDetailsResponse shippingDetailsResponse=new
+                ShippingDetailsResponse();
 
+        shippingDetailsResponse.setTrackingNumber(trackingNumber);
+        setLinks(shippingDetailsResponse);
+
+        return shippingDetailsResponse;
     }
 
     public String getShippingStatus(String trackingNumber) {
@@ -44,8 +51,8 @@ public class ShippingActivity implements ShippingService {
         return shippingManager.modifyStatus(shippingDetails.getShippingDetails()).get();
     }
 
-    private void setLinks(ShippingDetails response) {
-        Link buy = new Link("buy", "http://");
-        response.setLinks(buy);
+    private void setLinks(ShippingDetailsResponse response) {
+        Link shipStatus = new Link("ship_status", "http://localhost:8080/services/ship/shippingData/" + response.getTrackingNumber());
+        response.setLinks(shipStatus);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ecommerce.service.shipping;
 
 import com.example.ecommerce.service.shipping.representation.ShippingDetails;
+import com.example.ecommerce.service.shipping.representation.response.ShippingDetailsResponse;
 import com.example.ecommerce.service.shipping.workflow.ShippingActivity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class ShippingResource {
     private ShippingActivity shippingService;
 
     @POST
-    public ResponseEntity<String> createShippingInfo(@RequestBody ShippingDetails shippingDetails) {
+    public ResponseEntity<ShippingDetailsResponse> createShippingInfo(@RequestBody ShippingDetails shippingDetails) {
         return new ResponseEntity<>(shippingService.createShippingInformation(shippingDetails),
                 HttpStatus.CREATED);
     }

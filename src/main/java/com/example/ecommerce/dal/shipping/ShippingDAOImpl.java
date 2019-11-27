@@ -22,6 +22,17 @@ public class ShippingDAOImpl {
     private SessionFactory sessionFactory;
 
     public String saveShippingInfo(ShippingStatus shippingStatus) {
+        //Generate Primary Key for customer
+        String trackingNumber = (Instant.now().toEpochMilli()) + shippingStatus.getCart().getCartId();
+
+        //Set Shipping Status fields
+        shippingStatus.setTrackingNumber(trackingNumber);
+        shippingStatus.setCart(shippingStatus.getCart());
+        shippingStatus.setShippedBy(shippingStatus.getShippedBy());
+        shippingStatus.setShippingDate(LocalDate.now());
+        shippingStatus.setArrivalDate(shippingStatus.getShippingDate().plusDays(2));
+        shippingStatus.setShippingStatus(shippingStatus.getShippingStatus());
+
         Session session=sessionFactory.getCurrentSession();
         session.save(shippingStatus);
 
