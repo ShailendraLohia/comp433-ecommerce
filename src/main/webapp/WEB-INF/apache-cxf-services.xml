@@ -133,6 +133,7 @@
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
             <bean class="com.example.ecommerce.exceptions.mapper.ReturnListEmptyExceptionMapper" />
+            <bean class="com.example.ecommerce.exceptions.mapper.OrderNotFoundExceptionMapper"/>
         </jaxrs:providers>
     </jaxrs:server>
 </beans>

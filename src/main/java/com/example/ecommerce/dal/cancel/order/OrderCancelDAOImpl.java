@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -22,6 +24,19 @@ public class OrderCancelDAOImpl {
     private SessionFactory sessionFactory;
 
     public String saveReturnItems(OrderCancel orderCancel){
+        Set<ReturnItems> itemData = new HashSet<>();
+
+        String cancelOrderId = String.valueOf(Instant.now().toEpochMilli());
+        orderCancel.setCancelOrderId(cancelOrderId);
+
+        if(orderCancel.getReturnItems().size() > 0) {
+            for(ReturnItems items:orderCancel.getReturnItems()) {
+                items.setOrderCancel(orderCancel);
+                itemData.add(items);
+            }
+        }
+        orderCancel.setReturnItems(itemData);
+
         Session session=sessionFactory.getCurrentSession();
         session.persist(orderCancel);
 
@@ -38,6 +53,7 @@ public class OrderCancelDAOImpl {
         Set<ReturnItems> returnItems = items.stream()
                 .flatMap(OrderCancel -> OrderCancel.getReturnItems().stream())
                 .collect(Collectors.toSet());
+
 
         return returnItems;
     }

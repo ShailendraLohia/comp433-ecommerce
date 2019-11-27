@@ -14,6 +14,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CancelOrderResponse extends AbstractRepresentation {
-    private String cancelOrderId;
-    private Set<ReturnItems> returnItems;
+    private String cartId;
+    //private Set<ReturnItems> returnItems;
 }

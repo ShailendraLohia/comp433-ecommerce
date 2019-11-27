@@ -17,30 +17,35 @@ import java.util.Set;
 @Service
 public class CancelOrderActivity implements CancelOrderService {
 
-    //@Autowired
-    private CancelOrderManager cancelOrderManager = new CancelOrderManager();
+    @Autowired
+    private CancelOrderManager cancelOrderManager;// = new CancelOrderManager();
 
-    public String cancelOrder(CancelOrderDetails cancelOrderDetails) throws Exception {
+    public CancelOrderResponse cancelOrder(CancelOrderDetails cancelOrderDetails) throws Exception {
         OrderCancel orderCancel = cancelOrderDetails.getOrderCancel();
         //Cart empty check
         Set<ReturnItems> items = orderCancel.getReturnItems();
         if(items.size() == 0)
             throw new ReturnListEmptyException("Return List cannot be empty");
-        return cancelOrderManager.saveReturnItems(orderCancel);
+        String cancelOrderId=cancelOrderManager.saveReturnItems(orderCancel);
+        CancelOrderResponse cancelOrderResponse = new CancelOrderResponse();
+        cancelOrderResponse.setCartId(cancelOrderId);
+
+        setLinks(cancelOrderResponse);
+        return cancelOrderResponse;
     }
 
-    public CancelOrderResponse returnAllItems(String orderCancelId) {
+    public String returnAllItems(String orderCancelId) {
         Set<ReturnItems> orderCancelItems = cancelOrderManager.findReturnItems(orderCancelId);
         if(orderCancelItems.size() == 0) {
             throw new OrderNotFoundException("Requested cart not found");
         }
-        CancelOrderResponse cancelOrderResponse = new CancelOrderResponse();
-        cancelOrderResponse.setReturnItems(orderCancelItems);
-        return cancelOrderResponse;
+//        CancelOrderResponse cancelOrderResponse = new CancelOrderResponse();
+//        cancelOrderResponse.setMessage("Your order has been cancelled successfully");
+        return "Your order has been cancelled successfully";
     }
 
     private void setLinks(CancelOrderResponse response) {
-        Link buy = new Link("buy", "http://");
-        response.setLinks(buy);
+        Link status = new Link("cancel_order_status", "http://localhost:8080/services/cancelOrder/cancelOrders/" +response.getCartId());
+        response.setLinks(status);
     }
 }

@@ -23,8 +23,8 @@ public class CancelOrderResource {
     private CancelOrderActivity cancelOrderService;
 
     @POST
-    public ResponseEntity<String> cancelOrder(@RequestBody CancelOrderDetails cancelOrderDetails) throws Exception{
-        String response=null;
+    public ResponseEntity<CancelOrderResponse> cancelOrder(@RequestBody CancelOrderDetails cancelOrderDetails) throws Exception{
+        CancelOrderResponse response=null;
         try {
             response = cancelOrderService.cancelOrder(cancelOrderDetails);
 
@@ -34,13 +34,13 @@ public class CancelOrderResource {
             throw new Exception(ex.getMessage());
         }
 
-        return new ResponseEntity<String>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @GET
     @Path("/{cancelOrderId}")
-    public ResponseEntity<CancelOrderResponse> getListofItems(@PathParam("cancelOrderId") String cancelOrderId) {
-        CancelOrderResponse response=cancelOrderService.returnAllItems(cancelOrderId);
+    public ResponseEntity<String> getListOfItems(@PathParam("cancelOrderId") String cancelOrderId) {
+        String response=cancelOrderService.returnAllItems(cancelOrderId);
         return new ResponseEntity<>(response,HttpStatus.ACCEPTED);
     }
 }

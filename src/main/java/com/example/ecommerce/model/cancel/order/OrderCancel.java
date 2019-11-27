@@ -1,9 +1,6 @@
 package com.example.ecommerce.model.cancel.order;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
@@ -16,7 +13,7 @@ public class OrderCancel {
     private String reasonForReturn;
     private double totalRefundMoney;
     private Date cancelOrderDate;
-    @OneToMany(mappedBy = "orderCancel")
+    @OneToMany(mappedBy = "orderCancel",cascade = CascadeType.PERSIST)
     private Set<ReturnItems> returnItems;
 
     public OrderCancel() {}

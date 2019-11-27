@@ -4,6 +4,6 @@ import com.example.ecommerce.service.cancel.order.representation.request.CancelO
 import com.example.ecommerce.service.cancel.order.representation.response.CancelOrderResponse;
 
 public interface CancelOrderService {
-    public String cancelOrder(CancelOrderDetails cancelOrderDetails) throws Exception;
-    public CancelOrderResponse returnAllItems(String cancelOrderId);
+    public CancelOrderResponse cancelOrder(CancelOrderDetails cancelOrderDetails) throws Exception;
+    public String returnAllItems(String cancelOrderId);
 }
