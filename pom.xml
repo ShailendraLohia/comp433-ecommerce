@@ -108,6 +108,13 @@
       <version>1.18.10</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-rs-security-cors</artifactId>
+      <version>3.2.7</version>
+    </dependency>
+
+
   </dependencies>
 
   <build>
