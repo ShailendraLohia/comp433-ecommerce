@@ -19,7 +19,7 @@ public class ProductRepresentation extends AbstractRepresentation {
     private double item_price;
     private int item_quantity_available;
     private double item_review;
-    @JsonIgnore
+    // @JsonIgnore
     private String item_name;
     @JsonIgnore
     private String item_description;
