@@ -15,6 +15,9 @@
     <bean id="jaxbXmlProvider" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider" />
     <bean id="genericException" class="com.example.ecommerce.exceptions.mapper.GenericExceptionMapper"/>
 
+    <bean id="cors-filter" class="org.apache.cxf.rs.security.cors.CrossOriginResourceSharingFilter"/>
+
+
     <!-- CXFServlet configured in web.xml sends requests here -->
     <jaxrs:server id="restContainer" address="/">
         <jaxrs:serviceBeans>
@@ -30,6 +33,7 @@
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
+            <ref bean="cors-filter" />
         </jaxrs:providers>
     </jaxrs:server>
 
@@ -47,6 +51,7 @@
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
+            <ref bean="cors-filter" />
             <bean class="com.example.ecommerce.exceptions.mapper.UserNotFoundExceptionMapper"/>
         </jaxrs:providers>
     </jaxrs:server>
@@ -64,6 +69,7 @@
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
+            <ref bean="cors-filter" />
             <bean class="com.example.ecommerce.exceptions.mapper.UserNotFoundExceptionMapper"/>
             <bean class="com.example.ecommerce.exceptions.mapper.CartEmptyExceptionMapper"/>
             <bean class="com.example.ecommerce.exceptions.mapper.OrderNotFoundExceptionMapper"/>
@@ -83,6 +89,7 @@
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
+            <ref bean="cors-filter" />
         </jaxrs:providers>
     </jaxrs:server>
     <jaxrs:server id="productContainer" address="/product">
@@ -99,6 +106,7 @@
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
+            <ref bean="cors-filter" />
         </jaxrs:providers>
     </jaxrs:server>
     <jaxrs:server id="shippingContainer" address="/ship">
@@ -115,6 +123,7 @@
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
+            <ref bean="cors-filter" />
             <bean class="com.example.ecommerce.exceptions.mapper.CartNotFoundExceptionMapper"/>
         </jaxrs:providers>
     </jaxrs:server>
@@ -132,6 +141,7 @@
             <ref bean="jsonProvider" />
             <ref bean="jaxbXmlProvider" />
             <ref bean="genericException"/>
+            <ref bean="cors-filter" />
             <bean class="com.example.ecommerce.exceptions.mapper.ReturnListEmptyExceptionMapper" />
             <bean class="com.example.ecommerce.exceptions.mapper.OrderNotFoundExceptionMapper"/>
         </jaxrs:providers>
