@@ -35,9 +35,9 @@ public class OrderResource {
     private HttpHeaders headers;
 
     @OPTIONS
-    @Path("/{productId}")
+    @Path("/{orderID}")
     @LocalPreflight
-    public Response options(@PathParam("productId") String productID){
+    public Response options(@PathParam("orderID") String productID){
         String origin = headers.getOrigin();
         if("http://localhost:3000".equals(origin)) {
             return Response.ok()
