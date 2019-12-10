@@ -33,6 +33,24 @@
    <p>http://localhost:8080/services/userdata/users</p>
    <b>Example Request</b>
    <p>POST http://localhost:8080/services/userdata/users</p>
+       <b>Example Body</b>
+```
+   { 
+   "userData":{ 
+      "userName":"Shailendra",
+      "dateOfBirth":"2012-04-23T18:25:43.511Z",
+      "primeMember":true,
+      "paymentDetails":[ 
+         { 
+            "cardNumber":"74959454960",
+            "cardType":"CREDIT",
+            "cardCategory":"VISA",
+            "expiryDate":"2020-04-23"
+         }
+      ]
+   }
+}
+```
    <b>Example Response</b>
 ```
   {
@@ -51,24 +69,6 @@
     },
     "statusCode": "CREATED"
   }
-```
-   - <b>Example Body</b>
-```
-   { 
-   "userData":{ 
-      "userName":"Shailendra",
-      "dateOfBirth":"2012-04-23T18:25:43.511Z",
-      "primeMember":true,
-      "paymentDetails":[ 
-         { 
-            "cardNumber":"74959454960",
-            "cardType":"CREDIT",
-            "cardCategory":"VISA",
-            "expiryDate":"2020-04-23"
-         }
-      ]
-   }
-}
 ```
 <b>Customer_GET</b>
  - Retrieves a customer's information.
@@ -98,15 +98,7 @@
    <p>http://localhost:8080/services/product/products</p>
    <b>Example Request</b>
    <p>POST http://localhost:8080/services/product/products</p>
-   <b>Example Response</b>
-```
-{
-    "headers": {},
-    "body": "products added successfully",
-    "statusCode": "CREATED"
-}
-```
- - <b>Example Body</b>
+     <b>Example Body</b>
 ```
 { 
    "products":[{ 
@@ -118,6 +110,14 @@
       "item_sold_by": "Partner1",
       "item_review":3.5
    }]
+}
+```
+   <b>Example Response</b>
+```
+{
+    "headers": {},
+    "body": "products added successfully",
+    "statusCode": "CREATED"
 }
 ```
 <b>Product_GET</b>
@@ -154,23 +154,7 @@
    <p>http://localhost:8080/services/order/orders</p>
    <b>Example Request</b>
    <p>POST http://localhost:8080/services/order/orders</p>
-   <b>Example Response</b>
-```
-{
-    "headers": {},
-    "body": {
-        "links": [
-            {
-                "action": "order status",
-                "url": "http://localhost:8080/services/order/orders/1575947108322"
-            }
-        ],
-        "cartId": "1575947108322"
-    },
-    "statusCode": "CREATED"
-}
-```
- - <b>Example Body</b>
+     <b>Example Body</b>
 ```
 { 
    "orderDetails":{ 
@@ -195,6 +179,22 @@
          "expiryDate":"2020-04-23"
       }
    
+}
+```
+   <b>Example Response</b>
+```
+{
+    "headers": {},
+    "body": {
+        "links": [
+            {
+                "action": "order status",
+                "url": "http://localhost:8080/services/order/orders/1575947108322"
+            }
+        ],
+        "cartId": "1575947108322"
+    },
+    "statusCode": "CREATED"
 }
 ```
 <b>Order_GET</b>
@@ -228,6 +228,19 @@
    <p>http://localhost:8080/services/ship/shippingData</p>
    <b>Example Request</b>
    <p>POST http://localhost:8080/services/ship/shippingData/</p>
+      <b>Example Body</b>
+```
+{ 
+   "shippingDetails":{ 
+      "shippingStatus":"shipped",
+      "shippedBy":"USPS",
+      "cart":{ 
+      	 "cartId":"1575947108322"
+         
+      }
+   }
+}
+```
    <b>Example Response</b>
 ```
 {
@@ -242,19 +255,6 @@
         "trackingNumber": "15759483146621575947108322"
     },
     "statusCode": "CREATED"
-}
-```
-  - <b>Example Body</b>
-```
-{ 
-   "shippingDetails":{ 
-      "shippingStatus":"shipped",
-      "shippedBy":"USPS",
-      "cart":{ 
-      	 "cartId":"1575947108322"
-         
-      }
-   }
 }
 ```
 <b>Ship_GET</b>
