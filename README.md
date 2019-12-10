@@ -52,7 +52,7 @@
     "statusCode": "CREATED"
   }
 ```
-   - <b>Parameters</b>
+   - <b>Example Body</b>
 ```
    { 
    "userData":{ 
@@ -106,7 +106,7 @@
     "statusCode": "CREATED"
 }
 ```
- - <b>Parameters</b>
+ - <b>Example Body</b>
 ```
 { 
    "products":[{ 
@@ -170,7 +170,7 @@
     "statusCode": "CREATED"
 }
 ```
- - <b>Parameters</b>
+ - <b>Example Body</b>
 ```
 { 
    "orderDetails":{ 
@@ -244,7 +244,7 @@
     "statusCode": "CREATED"
 }
 ```
-  - <b>Parameters</b>
+  - <b>Example Body</b>
 ```
 { 
    "shippingDetails":{ 
