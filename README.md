@@ -28,6 +28,7 @@
 **API Reference Contents**
 <b>Customer_POST</b>
  - Updates a customer in the database, but can also be used to create the customer if said customer is not already in the database.
+   
    <b>Resource URL</b>
    <p>http://localhost:8080/services/userdata/users</p>
    <b>Example Request</b>
@@ -71,6 +72,7 @@
 ```
 <b>Customer_GET</b>
  - Retrieves a customer's information.
+   
    <b>Resource URL</b>
    <p>http://localhost:8080/services/userdata/users/1575945796575</p>
    <b>Example Request</b>
@@ -91,6 +93,7 @@
 ```
 <b>Product_POST</b>
  - Creates/Updates a product in the database.
+   
    <b>Resource URL</b>
    <p>http://localhost:8080/services/product/products</p>
    <b>Example Request</b>
@@ -119,6 +122,7 @@
 ```
 <b>Product_GET</b>
  - Retrieves a product's information.
+   
    <b>Resource URL</b>
    <p>http://localhost:8080/services/product/products/1</p>
    <b>Example Request</b>
@@ -145,6 +149,7 @@
 ```
 <b>Order_POST</b>
  - Creates/Updates an order in the database.
+   
    <b>Resource URL</b>
    <p>http://localhost:8080/services/order/orders</p>
    <b>Example Request</b>
@@ -194,6 +199,7 @@
 ```
 <b>Order_GET</b>
  - Retrieves Order data from database.
+   
    <b>Resource URL</b>
    <p>http://localhost:8080/services/order/orders/1575947108322</p>
    <b>Example Request</b>
@@ -217,6 +223,7 @@
 ```
 <b>Ship_POST</b>
  - Creates a shipping status in the database for tracking delivery.
+   
    <b>Resource URL</b>
    <p>http://localhost:8080/services/ship/shippingData</p>
    <b>Example Request</b>
@@ -252,6 +259,7 @@
 ```
 <b>Ship_GET</b>
  - Retrieves the shipping status of an order from the database.
+   
    <b>Resource URL</b>
    <p>http://localhost:8080/services/ship/shippingData/15720363515651572036341594</p>
    <b>Example Request</b>
