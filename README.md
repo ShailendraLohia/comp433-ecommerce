@@ -51,6 +51,24 @@
     "statusCode": "CREATED"
   }
 ```
+   - <b>Parameters</b>
+```
+   { 
+   "userData":{ 
+      "userName":"Shailendra",
+      "dateOfBirth":"2012-04-23T18:25:43.511Z",
+      "primeMember":true,
+      "paymentDetails":[ 
+         { 
+            "cardNumber":"74959454960",
+            "cardType":"CREDIT",
+            "cardCategory":"VISA",
+            "expiryDate":"2020-04-23"
+         }
+      ]
+   }
+}
+```
 <b>Customer_GET</b>
  - Retrieves a customer's information.
    <b>Resource URL</b>
@@ -83,6 +101,20 @@
     "headers": {},
     "body": "products added successfully",
     "statusCode": "CREATED"
+}
+```
+ - <b>Parameters</b>
+```
+{ 
+   "products":[{ 
+      "item_category":"Electronics",
+      "item_price":27.5,
+      "item_quantity_available":10,
+      "item_name":"Hello Product",
+      "item_description": "Electonics item",
+      "item_sold_by": "Partner1",
+      "item_review":3.5
+   }]
 }
 ```
 <b>Product_GET</b>
@@ -133,6 +165,33 @@
     "statusCode": "CREATED"
 }
 ```
+ - <b>Parameters</b>
+```
+{ 
+   "orderDetails":{ 
+      "purchaseDate":"2019-09-23T18:25:43.511Z",
+      "orderStatus":"Order Placed",
+      "items":[ 
+         { 
+            "item_id":"item 2",
+            "quantity":2
+         }
+      ],
+      "user":{ 
+      	 "userId":"1575946565145"
+         
+      }
+   },
+   "paymentDetails": 
+      { 
+         "cardNumber":"74959454959",
+         "cardType":"CREDIT",
+         "cardCategory":"VISA",
+         "expiryDate":"2020-04-23"
+      }
+   
+}
+```
 <b>Order_GET</b>
  - Retrieves Order data from database.
    <b>Resource URL</b>
@@ -176,6 +235,19 @@
         "trackingNumber": "15759483146621575947108322"
     },
     "statusCode": "CREATED"
+}
+```
+  - <b>Parameters</b>
+```
+{ 
+   "shippingDetails":{ 
+      "shippingStatus":"shipped",
+      "shippedBy":"USPS",
+      "cart":{ 
+      	 "cartId":"1575947108322"
+         
+      }
+   }
 }
 ```
 <b>Ship_GET</b>
