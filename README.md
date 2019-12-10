@@ -24,6 +24,8 @@
 
 # State Diagram
 
+![](State_Diagram.png)
+
 # API Documentation
 **API Reference Contents**
 <b>Customer_POST</b>
